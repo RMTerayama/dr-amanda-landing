@@ -1,13 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import drAmandaImg from '../assets/DrAmanda2.jpeg';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
 const AboutSection = () => {
   return (
-    <section className="bg-white text-black h-[100vh] w-full relative flex items-center justify-center overflow-hidden snap-start">
+    <section className="bg-white text-black h-[92vh] w-full relative flex items-center justify-center overflow-hidden snap-start">
       
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 h-full py-20 flex flex-col md:flex-row items-center justify-between relative z-10 gap-12 lg:gap-20">
+      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 h-full pt-32 pb-20 flex flex-col md:flex-row items-center justify-between relative z-10 gap-12 lg:gap-20">
         
         {/* Lado Esquerdo: Fotografia / Manifesto Visual */}
         <div className="w-full md:w-1/2 h-[50vh] md:h-full flex items-center justify-center relative">
@@ -19,17 +20,14 @@ const AboutSection = () => {
             transition={{ duration: 1.4, ease: smoothCurve }}
           >
             {/* Foto Principal com bordas assimétricas ao estilo Vogue */}
-            <div className="w-full h-full bg-[#fcfcfc] border border-neutral-100 rounded-tr-[120px] md:rounded-tr-[200px] rounded-bl-[80px] shadow-sm relative overflow-hidden flex items-center justify-center group">
-              <div className="absolute inset-0 bg-neutral-200/50 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent"></div>
-              
-              <div className="text-center">
-                 <span className="font-serif italic text-neutral-400 text-lg md:text-2xl tracking-wide block mb-2">
-                   [Lugar para Foto]
-                 </span>
-                 <span className="text-[10px] uppercase font-semibold tracking-[0.3em] text-neutral-300">
-                   Rotina Clínica
-                 </span>
-              </div>
+            <div className="w-full h-full bg-[#fcfcfc] border border-neutral-100 rounded-tr-[120px] md:rounded-tr-[200px] rounded-bl-[80px] shadow-sm relative overflow-hidden group">
+              <div className="absolute inset-0 bg-neutral-100/20 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent z-10 pointer-events-none"></div>
+              <img
+                src={drAmandaImg}
+                alt="Dra. Amanda Miyuki — Rotina Clínica"
+                className="w-full h-full object-cover"
+                style={{ objectPosition: 'center 30%' }}
+              />
             </div>
 
             {/* Micro detalhe de design (selo flutuante) */}

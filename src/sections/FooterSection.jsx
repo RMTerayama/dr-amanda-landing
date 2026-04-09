@@ -23,7 +23,7 @@ const FooterSection = () => {
           transition={{ duration: 1.2, ease: smoothCurve }}
         >
           <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-light tracking-tight leading-[1.05] mb-8">
-            Sua <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-400">transformação</span><br />
+            Sua <span className="font-serif italic font-normal text-transparent bg-clip-text bg-gradient-to-r from-[#A855F7] to-[#5700B0]">transformação</span><br />
             começa aqui.
           </h2>
           <p className="text-neutral-400 text-sm md:text-base font-light mb-12 md:mb-16 max-w-2xl mx-auto leading-relaxed">
