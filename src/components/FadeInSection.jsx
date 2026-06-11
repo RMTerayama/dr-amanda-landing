@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
 const FadeInSection = ({ children, delay = 0, className = "" }) => {
   return (
-    <motion.div
+    <Motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -11,8 +11,9 @@ const FadeInSection = ({ children, delay = 0, className = "" }) => {
       className={className}
     >
       {children}
-    </motion.div>
+    </Motion.div>
   );
 };
 
 export default FadeInSection;
+

@@ -1,124 +1,132 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
+import { ArrowRight, BadgeCheck, MapPin, Sparkles } from 'lucide-react';
+import WhatsAppButton from '../components/WhatsAppButton';
 import drAmandaImg from '../assets/DrAmanda.png';
+import { siteInfo } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
 const HeroSection = () => {
   return (
-    <section className="bg-[#FAFAFA] text-black h-[100vh] w-full relative overflow-hidden flex items-center justify-center snap-start">
-      
-      {/* Decorative ultra-minimal noise */}
-      <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")'}}></div>
+    <section id="hero" className="relative flex min-h-screen w-full items-center overflow-hidden bg-[#FAFAFA] px-6 pb-16 pt-28 text-black md:px-12 md:pb-20 md:pt-32">
+      <div
+        className="absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage:
+            'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")',
+        }}
+      />
 
-      {/* Subtle Purple Hue Glow (Aura) */}
-      <div className="absolute top-[-10%] right-[-10%] w-[50vw] h-[50vw] bg-[#5700B0] rounded-full mix-blend-multiply opacity-[0.03] blur-[100px] pointer-events-none"></div>
-
-      <div className="w-full max-w-[1400px] mx-auto px-6 lg:px-12 h-full flex flex-col md:flex-row items-center justify-between relative z-10 pt-20 pb-10">
-        
-        {/* Lado Esquerdo: Tipografia e Call To Action */}
-        <div className="w-full md:w-[60%] flex flex-col justify-center items-start z-20 h-full">
-          
-
-
-          <motion.h1 
-            className="text-6xl sm:text-7xl md:text-[6rem] lg:text-[7.5rem] leading-[0.9] tracking-tighter text-neutral-900 mb-6 md:mb-10 font-medium"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: smoothCurve, delay: 0.3 }}
-          >
-            Dra. Amanda<br/>
-            <span className="font-serif italic font-light text-[#5700B0] tracking-normal pr-4">Miyuki</span>
-          </motion.h1>
-
-          <motion.p 
-            className="text-neutral-500 font-light text-sm md:text-base max-w-sm leading-relaxed mb-10"
+      <div className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+        <div>
+          <Motion.div
+            className="mb-7 inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 backdrop-blur"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.5 }}
+            transition={{ duration: 0.9, ease: smoothCurve, delay: 0.2 }}
           >
-            Resignificando a arte de sorrir através de uma abordagem minimalista, unindo ciência e o mais apurado senso estético.
-          </motion.p>
+            <MapPin className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
+            Clínica odontológica em Três Lagoas
+          </Motion.div>
 
-          <motion.div
-            className="flex items-center gap-4"
-            initial={{ opacity: 0, y: 10 }}
+          <Motion.h1
+            className="max-w-5xl text-4xl font-light leading-tight tracking-tight text-neutral-950 sm:text-5xl md:text-6xl lg:text-7xl"
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.7 }}
+            transition={{ duration: 1.1, ease: smoothCurve, delay: 0.3 }}
           >
-            <span className="w-8 h-[1px] bg-black/40"></span>
-            <span className="text-[9px] md:text-[11px] uppercase tracking-[0.25em] font-semibold text-neutral-600">
-              Odontologia Estética &amp; Harmonização
-            </span>
-          </motion.div>
-          
-        </div>
+            Odontologia estética, funcional e humanizada em{' '}
+            <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
+          </Motion.h1>
 
-        {/* Lado Direito: Foto Dra. Amanda + Card Flutuante */}
-        <div className="w-full md:w-[40%] h-[60vh] md:h-[80vh] flex items-center justify-center relative mt-12 md:mt-0 z-10">
-          
-          <motion.div 
-            className="w-[85%] md:w-full h-full relative"
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, ease: smoothCurve, delay: 0.4 }}
+          <Motion.p
+            className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-500 md:text-base"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: smoothCurve, delay: 0.45 }}
           >
-            {/* Arch Photo Container — Dra. Amanda */}
-            <div className="w-full h-full bg-[#f1f1f1] rounded-t-[200px] rounded-b-2xl md:rounded-b-3xl border border-neutral-200 overflow-hidden relative shadow-[0_30px_60px_rgba(0,0,0,0.06)]">
-              {/* Subtle gradient overlay at the bottom for elegance */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-neutral-200/30 z-10 pointer-events-none"></div>
-              <img
-                src={drAmandaImg}
-                alt="Dra. Amanda Miyuki — Odontologia Estética"
-                className="w-full h-full object-cover object-top"
-              />
-            </div>
+            Tratamentos odontológicos personalizados para transformar o sorriso,
+            recuperar a função e valorizar a beleza natural com segurança e cuidado.
+          </Motion.p>
 
-            {/* Premium Floating Card overlapping the image */}
-            <motion.div 
-              className="absolute -left-[10%] md:-left-[25%] bottom-[15%] md:bottom-[20%] bg-white/70 backdrop-blur-2xl border border-white/60 p-4 md:p-6 rounded-[30px] shadow-[0_20px_40px_rgba(87,0,176,0.05)] flex items-center gap-4 w-[280px] md:w-[320px] group cursor-default"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1.2, ease: smoothCurve, delay: 0.8 }}
-              whileHover={{ y: -5, boxShadow: "0 25px 50px rgba(87,0,176,0.08)" }}
+          <Motion.div
+            className="mt-9 flex flex-col gap-3 sm:flex-row"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: smoothCurve, delay: 0.6 }}
+          >
+            <WhatsAppButton
+              variant="dark"
+              message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica em Três Lagoas."
             >
-              {/* Credential icon */}
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#5700B0]/20 bg-[#5700B0]/06 shrink-0 flex items-center justify-center">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#5700B0" strokeWidth="1.5" strokeLinejoin="round"/>
-                  <path d="M2 17l10 5 10-5" stroke="#5700B0" strokeWidth="1.5" strokeLinejoin="round"/>
-                  <path d="M2 12l10 5 10-5" stroke="#5700B0" strokeWidth="1.5" strokeLinejoin="round"/>
-                </svg>
-              </div>
+              Agendar avaliação
+            </WhatsAppButton>
+            <a
+              href="/tratamentos"
+              className="inline-flex items-center justify-center gap-3 rounded-full border border-black/15 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-colors duration-500 hover:border-[#5700B0] hover:text-[#5700B0]"
+            >
+              Ver tratamentos
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
+            </a>
+          </Motion.div>
 
-              {/* Credentials */}
-              <div className="flex flex-col gap-2">
-                <div>
-                  <span className="text-[8px] uppercase tracking-[0.22em] font-semibold text-neutral-400 block mb-0.5">
-                    Formação
-                  </span>
-                  <p className="text-black font-semibold text-[10px] md:text-xs tracking-wide">
-                    UNESP — Odontologia Estética
-                  </p>
-                </div>
-                <div className="w-full h-[1px] bg-neutral-100" />
-                <div>
-                  <span className="text-[8px] uppercase tracking-[0.22em] font-semibold text-neutral-400 block mb-0.5">
-                    Registro
-                  </span>
-                  <p className="text-black font-semibold text-[10px] md:text-xs tracking-wide">
-                    CRO-MS <span className="text-[#5700B0]">7266</span>
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-
-          </motion.div>
+          <Motion.div
+            className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-2"
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: smoothCurve, delay: 0.75 }}
+          >
+            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
+              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
+              <p className="text-xs font-light leading-relaxed text-neutral-500">
+                Estética dental, reabilitação oral, bruxismo e harmonização com
+                planejamento individual.
+              </p>
+            </div>
+            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
+              <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
+              <p className="text-xs font-light leading-relaxed text-neutral-500">
+                {siteInfo.professionalName}, {siteInfo.cro}, atendimento em Três Lagoas.
+              </p>
+            </div>
+          </Motion.div>
         </div>
 
+        <Motion.div
+          className="relative mx-auto flex h-[520px] w-full max-w-[520px] items-end justify-center md:h-[680px] lg:max-w-none"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.3, ease: smoothCurve, delay: 0.35 }}
+        >
+          <div className="absolute bottom-0 left-1/2 h-[82%] w-[88%] -translate-x-1/2 rounded-t-[220px] rounded-b-lg bg-[#5700B0]/10" />
+          <div className="relative h-full w-[88%] overflow-hidden rounded-t-[220px] rounded-b-lg border border-neutral-200 bg-[#f1f1f1] shadow-[0_30px_70px_rgba(0,0,0,0.08)]">
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-transparent via-transparent to-neutral-200/30 pointer-events-none" />
+            <img
+              src={drAmandaImg}
+              alt="Dra. Amanda Miyuki em clínica odontológica"
+              className="h-full w-full object-cover object-top"
+            />
+          </div>
+
+          <Motion.div
+            className="absolute bottom-8 left-0 max-w-[300px] rounded-lg border border-white/70 bg-white/80 p-5 shadow-[0_20px_45px_rgba(87,0,176,0.08)] backdrop-blur-xl"
+            initial={{ opacity: 0, x: -28 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.1, ease: smoothCurve, delay: 0.8 }}
+          >
+            <span className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.22em] text-neutral-400">
+              Formação e cuidado
+            </span>
+            <p className="text-sm font-medium leading-relaxed text-neutral-900">
+              Odontologia estética com olhar funcional e atendimento humanizado.
+            </p>
+          </Motion.div>
+        </Motion.div>
       </div>
     </section>
   );
 };
 
 export default HeroSection;
+

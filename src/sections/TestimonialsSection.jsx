@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion as Motion, AnimatePresence } from 'framer-motion';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
@@ -33,30 +33,30 @@ const TestimonialsSection = () => {
   }, []);
 
   return (
-    <section className="bg-[#5700B0] text-white h-[100vh] w-full relative flex items-center justify-center overflow-hidden snap-start">
+    <section id="testimonials" className="bg-[#5700B0] text-white min-h-screen w-full relative flex items-center justify-center overflow-hidden py-20 md:py-28">
       {/* Decorative noise/texture */}
       <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")'}}></div>
 
       {/* Decorative large quotes */}
       <div className="absolute top-[15%] left-[5%] md:left-[10%] text-white/5 font-serif text-[20vw] md:text-[15vw] leading-none pointer-events-none select-none">
-        “
+        "
       </div>
 
       <div className="w-full max-w-5xl mx-auto px-6 md:px-12 relative z-10 flex flex-col items-center">
         
-        <motion.h3 
+        <Motion.h2 
           className="text-white/60 font-semibold tracking-widest text-[10px] md:text-xs uppercase mb-16 md:mb-20"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: smoothCurve }}
         >
-          O Que Nossos Pacientes Dizem
-        </motion.h3>
+          O que nossos pacientes dizem
+        </Motion.h2>
 
         <div className="h-[40vh] md:h-[35vh] w-full flex items-center justify-center relative">
           <AnimatePresence mode="wait">
-            <motion.div
+            <Motion.div
               key={currentIndex}
               initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
                   {testimonials[currentIndex].role}
                 </span>
               </div>
-            </motion.div>
+            </Motion.div>
           </AnimatePresence>
         </div>
 
@@ -102,3 +102,4 @@ const TestimonialsSection = () => {
 };
 
 export default TestimonialsSection;
+
