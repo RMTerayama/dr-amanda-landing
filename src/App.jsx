@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import MainLayout from './layouts/MainLayout';
 import Navbar from './components/Navbar';
+import StickyMobileCTA from './components/StickyMobileCTA';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import LocationPage from './pages/LocationPage';
@@ -15,27 +16,27 @@ const normalizePath = (pathname) => {
 const routes = {
   '/': {
     component: HomePage,
-    title: 'Dra. Amanda Miyuki | Odontologia estética em Três Lagoas',
+    title: 'Dentista em Três Lagoas | Dra. Amanda Miyuki',
     description:
-      'Tratamentos odontológicos personalizados em Três Lagoas para transformar o sorriso, recuperar a função e valorizar a beleza natural com segurança e cuidado.',
+      'Agende sua avaliação odontológica com a Dra. Amanda Miyuki no Terrace Business Center em Três Lagoas. Estética dental, reabilitação, bruxismo e harmonização.',
   },
   '/tratamentos': {
     component: TreatmentsPage,
     title: 'Tratamentos odontológicos em Três Lagoas | Dra. Amanda Miyuki',
     description:
-      'Conheça tratamentos odontológicos em Três Lagoas: estética dental, clareamento, lentes de resina, canal, cirurgias, implantes, próteses, reabilitação oral e harmonização orofacial.',
+      'Tratamentos odontológicos em Três Lagoas para estética dental, clareamento, lentes de resina, canal, cirurgias, implantes, próteses, bruxismo e reabilitação oral.',
   },
   '/localizacao': {
     component: LocationPage,
-    title: 'Localização da clínica odontológica em Três Lagoas | Dra. Amanda Miyuki',
+    title: 'Localização no Terrace Business Center | Dra. Amanda Miyuki',
     description:
-      'Veja localização, mapa, horários e WhatsApp para agendar atendimento odontológico com a Dra. Amanda Miyuki em Três Lagoas.',
+      'Veja endereço, mapa, horários e WhatsApp para agendar atendimento odontológico com a Dra. Amanda Miyuki no Terrace Business Center em Três Lagoas.',
   },
   '/contato': {
     component: ContactPage,
     title: 'Contato | Dentista em Três Lagoas | Dra. Amanda Miyuki',
     description:
-      'Fale pelo WhatsApp com a Dra. Amanda Miyuki para agendar consulta odontológica em Três Lagoas.',
+      'Fale pelo WhatsApp com a Dra. Amanda Miyuki para agendar avaliação odontológica no Terrace Business Center em Três Lagoas.',
   },
 };
 
@@ -95,6 +96,7 @@ function App() {
       <Navbar currentPath={currentPath} />
       <Page />
       <FooterSection />
+      <StickyMobileCTA />
     </MainLayout>
   )
 }

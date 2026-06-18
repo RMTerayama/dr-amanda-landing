@@ -25,13 +25,13 @@ const TreatmentsPage = () => {
               Tratamentos odontológicos em Três Lagoas
             </span>
             <h1 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-neutral-950 md:text-6xl lg:text-7xl">
-              Tratamentos odontológicos em{' '}
-              <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
+              Encontre o tratamento indicado para o seu{' '}
+              <span className="font-serif italic text-[#5700B0]">sorriso</span>
             </h1>
             <p className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
-              Conheça os tratamentos realizados pela clínica, incluindo estética
-              dental, clareamento, lentes de resina, canal, cirurgias, implantes,
-              próteses, reabilitação oral e harmonização orofacial.
+              Da prevenção à estética dental, a avaliação ajuda a entender o que
+              precisa ser feito agora e qual plano preserva saúde, função e
+              naturalidade.
             </p>
           </Motion.div>
 
@@ -43,19 +43,19 @@ const TreatmentsPage = () => {
           >
             <Sparkles className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
             <h2 className="text-xl font-light leading-tight tracking-tight text-neutral-950">
-              Da prevenção à reabilitação completa do sorriso.
+              Não sabe por onde começar?
             </h2>
             <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
-              A clínica odontológica em Três Lagoas realiza desde procedimentos
-              estéticos até tratamentos clínicos, cirúrgicos, reabilitadores e
-              funcionais.
+              Explique sua necessidade pelo WhatsApp e agende uma avaliação para
+              receber uma orientação inicial sobre o melhor caminho para o seu
+              caso.
             </p>
             <WhatsAppButton
               className="mt-6 w-full sm:w-auto"
               variant="purple"
-              message="Olá, Dra. Amanda! Gostaria de saber qual tratamento odontológico é indicado para mim."
+              message="Olá, Dra. Amanda! Gostaria de entender qual tratamento odontológico é indicado para o meu caso."
             >
-              Tirar dúvidas pelo WhatsApp
+              Falar pelo WhatsApp
             </WhatsAppButton>
           </Motion.div>
         </div>
@@ -69,13 +69,13 @@ const TreatmentsPage = () => {
                 Serviços por categoria
               </span>
               <h2 className="max-w-3xl text-3xl font-light leading-tight tracking-tight text-neutral-900 md:text-5xl">
-                Encontre o tratamento certo para o seu momento.
+                Cuidados para estética, dor, função e reabilitação do sorriso.
               </h2>
             </div>
             <p className="max-w-md text-sm font-light leading-relaxed text-neutral-500 md:text-right">
-              Se você procura dentista em Três Lagoas para estética, canal,
-              extração de siso, implante dentário ou reabilitação oral, esta
-              página reúne as principais possibilidades de cuidado.
+              Se você procura dentista em Três Lagoas para clareamento, lentes,
+              canal, extração de siso, implante, bruxismo ou reabilitação, veja as
+              principais possibilidades de cuidado.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ const TreatmentsPage = () => {
 
                 <a
                   href={buildWhatsAppUrl(
-                    `Olá, Dra. Amanda! Gostaria de saber mais sobre ${category.title.toLowerCase()} em Três Lagoas.`
+                    `Olá, Dra. Amanda! Gostaria de saber se ${category.title.toLowerCase()} é indicado para o meu caso.`
                   )}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -133,12 +133,11 @@ const TreatmentsPage = () => {
           <div>
             <SearchCheck className="mb-6 h-7 w-7 text-[#A855F7]" aria-hidden="true" />
             <h2 className="max-w-xl text-3xl font-light leading-tight tracking-tight md:text-5xl">
-              Buscas locais que a página ajuda a responder.
+              Atendimento odontológico no Centro de Três Lagoas.
             </h2>
             <p className="mt-5 max-w-xl text-sm font-light leading-relaxed text-white/55 md:text-base">
-              O conteúdo foi organizado para captação orgânica de pacientes que
-              procuram tratamentos odontológicos em Três Lagoas com clareza e
-              intenção de agendamento.
+              A clínica fica no Terrace Business Center, na Av. Dr. Eloy Chaves,
+              com atendimento em horário comercial e agendamento pelo WhatsApp.
             </p>
           </div>
 
@@ -158,11 +157,11 @@ const TreatmentsPage = () => {
       <section className="bg-white px-6 py-16 text-center text-black md:px-12 md:py-24">
         <div className="mx-auto max-w-3xl">
           <h2 className="text-3xl font-light leading-tight tracking-tight text-neutral-950 md:text-5xl">
-            Precisa avaliar um tratamento específico?
+            Quer entender qual tratamento faz sentido para você?
           </h2>
           <p className="mt-5 text-sm font-light leading-relaxed text-neutral-500 md:text-base">
-            Fale com a {siteInfo.clinicName} e agende uma avaliação para entender
-            qual abordagem faz sentido para o seu sorriso.
+            Fale com a {siteInfo.clinicName}, conte sua necessidade inicial e
+            agende uma avaliação para receber um plano mais claro.
           </p>
           <WhatsAppButton
             className="mt-8"

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { AtSign, Clock, MapPin, MessageCircle } from 'lucide-react';
+import { AtSign, Clock, MapPin, MessageCircle, Phone } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { siteInfo } from '../data/site';
 
@@ -20,19 +20,19 @@ const ContactPage = () => {
             Contato
           </span>
           <h1 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-neutral-950 md:text-6xl lg:text-7xl">
-            Fale com uma dentista em{' '}
+            Agende sua avaliação odontológica em{' '}
             <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
           </h1>
           <p className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
-            Agende sua consulta odontológica pelo WhatsApp e receba orientação
-            sobre estética dental, reabilitação oral, bruxismo, clareamento,
-            lentes de resina, implantes e harmonização orofacial.
+            Fale diretamente pelo WhatsApp, explique sua necessidade inicial e
+            receba orientação para marcar uma avaliação no Terrace Business
+            Center.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <WhatsAppButton
               variant="purple"
-              message="Olá, Dra. Amanda! Gostaria de agendar uma consulta odontológica em Três Lagoas."
+              message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica no Terrace Business Center."
             >
               Agendar pelo WhatsApp
             </WhatsAppButton>
@@ -60,8 +60,12 @@ const ContactPage = () => {
               Atendimento pelo WhatsApp
             </h2>
             <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
-              Use o WhatsApp para tirar dúvidas, enviar sua necessidade inicial
-              e combinar o melhor horário para avaliação.
+              Envie sua dúvida, informe o tratamento que procura ou descreva o
+              desconforto que sente. A equipe orienta o melhor horário para sua
+              avaliação.
+            </p>
+            <p className="mt-3 text-sm font-medium text-neutral-900">
+              {siteInfo.phoneDisplay}
             </p>
             <WhatsAppButton
               className="mt-6"
@@ -79,6 +83,9 @@ const ContactPage = () => {
               Localização
             </h2>
             <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
+              {siteInfo.addressLine}
+            </p>
+            <p className="mt-2 text-sm font-medium leading-relaxed text-neutral-900">
               {siteInfo.addressDetail}
             </p>
             <a
@@ -101,6 +108,18 @@ const ContactPage = () => {
                 <p key={hour}>{hour}</p>
               ))}
             </div>
+          </article>
+
+          <article className="rounded-lg border border-neutral-200 bg-white p-6 sm:col-span-2">
+            <Phone className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
+            <h2 className="text-xl font-light tracking-tight text-neutral-950">
+              Antes da consulta
+            </h2>
+            <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
+              Para otimizar seu atendimento, conte pelo WhatsApp se você procura
+              estética dental, dor, canal, implante, bruxismo, reabilitação ou
+              harmonização. Assim a avaliação já começa mais direcionada.
+            </p>
           </article>
         </Motion.div>
       </div>

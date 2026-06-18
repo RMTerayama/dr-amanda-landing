@@ -18,12 +18,13 @@ const LocationPage = () => {
             Como chegar
           </span>
           <h1 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-neutral-950 md:text-6xl lg:text-7xl">
-            Localização da clínica em{' '}
+            Como chegar ao atendimento da Dra. Amanda em{' '}
             <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
           </h1>
           <p className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
-            Consulte o mapa, horários de atendimento e fale pelo WhatsApp para
-            confirmar o melhor horário antes da sua avaliação odontológica.
+            A clínica fica no Terrace Business Center, na Av. Dr. Eloy Chaves,
+            956, sala 405. Consulte o mapa e fale pelo WhatsApp para agendar sua
+            avaliação.
           </p>
         </Motion.div>
       </section>

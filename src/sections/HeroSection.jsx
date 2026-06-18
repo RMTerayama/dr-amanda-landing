@@ -27,7 +27,7 @@ const HeroSection = () => {
             transition={{ duration: 0.9, ease: smoothCurve, delay: 0.2 }}
           >
             <MapPin className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
-            Clínica odontológica em Três Lagoas
+            Terrace Business Center | Centro
           </Motion.div>
 
           <Motion.h1
@@ -36,8 +36,8 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, ease: smoothCurve, delay: 0.3 }}
           >
-            Odontologia estética, funcional e humanizada em{' '}
-            <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
+            Dentista em Três Lagoas para cuidar do seu{' '}
+            <span className="font-serif italic text-[#5700B0]">sorriso</span>
           </Motion.h1>
 
           <Motion.p
@@ -46,8 +46,9 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: smoothCurve, delay: 0.45 }}
           >
-            Tratamentos odontológicos personalizados para transformar o sorriso,
-            recuperar a função e valorizar a beleza natural com segurança e cuidado.
+            Agende uma avaliação com a Dra. Amanda Miyuki e entenda o melhor plano
+            para clarear, restaurar, harmonizar ou reabilitar com segurança e
+            naturalidade.
           </Motion.p>
 
           <Motion.div
@@ -60,13 +61,13 @@ const HeroSection = () => {
               variant="dark"
               message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica em Três Lagoas."
             >
-              Agendar avaliação
+              Agendar pelo WhatsApp
             </WhatsAppButton>
             <a
               href="/tratamentos"
               className="inline-flex items-center justify-center gap-3 rounded-full border border-black/15 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-colors duration-500 hover:border-[#5700B0] hover:text-[#5700B0]"
             >
-              Ver tratamentos
+              Conhecer tratamentos
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </Motion.div>
@@ -80,14 +81,15 @@ const HeroSection = () => {
             <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
               <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
               <p className="text-xs font-light leading-relaxed text-neutral-500">
-                Estética dental, reabilitação oral, bruxismo e harmonização com
-                planejamento individual.
+                Clareamento, lentes de resina, reabilitação, bruxismo e
+                harmonização com diagnóstico individual.
               </p>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
               <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
               <p className="text-xs font-light leading-relaxed text-neutral-500">
-                {siteInfo.professionalName}, {siteInfo.cro}, atendimento em Três Lagoas.
+                {siteInfo.professionalName}, {siteInfo.cro}. Atendimento no
+                Terrace Business Center.
               </p>
             </div>
           </Motion.div>
@@ -105,6 +107,8 @@ const HeroSection = () => {
             <img
               src={drAmandaImg}
               alt="Dra. Amanda Miyuki em clínica odontológica"
+              fetchPriority="high"
+              decoding="async"
               className="h-full w-full object-cover object-top"
             />
           </div>
@@ -116,10 +120,11 @@ const HeroSection = () => {
             transition={{ duration: 1.1, ease: smoothCurve, delay: 0.8 }}
           >
             <span className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.22em] text-neutral-400">
-              Formação e cuidado
+              Avaliação com planejamento
             </span>
             <p className="text-sm font-medium leading-relaxed text-neutral-900">
-              Odontologia estética com olhar funcional e atendimento humanizado.
+              Antes de indicar um tratamento, a consulta avalia estética, mordida,
+              saúde bucal e seus objetivos.
             </p>
           </Motion.div>
         </Motion.div>

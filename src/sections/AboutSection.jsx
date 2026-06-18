@@ -17,6 +17,7 @@ const AboutSection = () => {
             className="w-full max-w-lg h-full max-h-[80vh] relative"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
+            whileHover={{ y: -6 }}
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 1.4, ease: smoothCurve }}
           >
@@ -26,6 +27,8 @@ const AboutSection = () => {
               <img
                 src={drAmandaImg}
                 alt="Dra. Amanda Miyuki em rotina clínica"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
                 style={{ objectPosition: 'center 30%' }}
               />
@@ -33,7 +36,7 @@ const AboutSection = () => {
 
             {/* Micro detalhe de design (selo flutuante) */}
             <Motion.div 
-              className="absolute -bottom-6 -right-6 md:bottom-12 md:-right-8 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.06)] border border-neutral-100 z-20"
+              className="absolute -bottom-6 right-0 md:bottom-12 md:-right-8 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.06)] border border-neutral-100 z-20"
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
             >
@@ -70,7 +73,7 @@ const AboutSection = () => {
             viewport={{ once: true, margin: "-10%" }}
             transition={{ duration: 1.2, ease: smoothCurve, delay: 0.3 }}
           >
-            Estética, função e cuidado no mesmo plano de tratamento.
+            Uma avaliação completa para indicar o tratamento certo para o seu sorriso.
           </Motion.h2>
 
           <Motion.div 
@@ -81,15 +84,15 @@ const AboutSection = () => {
             transition={{ duration: 1, ease: smoothCurve, delay: 0.5 }}
           >
             <p>
-              A {siteInfo.clinicName} conduz tratamentos odontológicos em Três
-              Lagoas com foco em escuta, planejamento e naturalidade. Cada sorriso
-              é avaliado considerando estética, saúde bucal, função mastigatória e
-              conforto.
+              A {siteInfo.clinicName} atende em Três Lagoas com foco em escuta,
+              diagnóstico e planejamento. Antes de qualquer procedimento, cada caso
+              é avaliado considerando estética, saúde bucal, mordida, função
+              mastigatória e conforto.
             </p>
             <p>
-              A proposta é unir odontologia estética e funcional para criar
-              resultados seguros, coerentes com o rosto e sustentados por uma
-              rotina de cuidado clara para o paciente.
+              A proposta é orientar você com clareza: o que pode ser feito, quais
+              etapas são necessárias e qual abordagem preserva naturalidade,
+              segurança e saúde ao longo do tratamento.
             </p>
           </Motion.div>
 

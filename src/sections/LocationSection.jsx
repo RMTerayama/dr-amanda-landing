@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { AtSign, Clock, MapPin, Navigation } from 'lucide-react';
+import { AtSign, Clock, MapPin, Navigation, Phone } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { siteInfo } from '../data/site';
 
@@ -23,24 +23,25 @@ const LocationSection = ({ detailed = false }) => {
             Localização
           </span>
           <h2 className="max-w-2xl text-4xl font-light leading-tight tracking-tight text-neutral-900 md:text-5xl">
-            Atendimento odontológico em Três Lagoas.
+            Atendimento no Terrace Business Center, em Três Lagoas.
           </h2>
           <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
-            A clínica recebe pacientes de Três Lagoas e região para tratamentos
-            odontológicos estéticos, funcionais, clínicos e reabilitadores.
+            A clínica recebe pacientes para avaliação odontológica, estética dental,
+            reabilitação oral, bruxismo, implantes e harmonização orofacial em uma
+            localização de fácil acesso no Centro.
           </p>
 
-          <div className="mt-9 grid gap-4 sm:grid-cols-2">
+          <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             <div className="rounded-lg border border-neutral-200 bg-white p-5">
               <MapPin className="mb-4 h-5 w-5 text-[#5700B0]" aria-hidden="true" />
               <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">
                 Endereço
               </h3>
               <p className="text-sm font-light leading-relaxed text-neutral-500">
-                {siteInfo.addressDetail}
+                {siteInfo.addressLine}
               </p>
               <p className="mt-2 text-sm font-medium text-neutral-900">
-                {siteInfo.addressLine}
+                {siteInfo.addressDetail}
               </p>
             </div>
 
@@ -55,19 +56,33 @@ const LocationSection = ({ detailed = false }) => {
                 ))}
               </div>
             </div>
+
+            <div className="rounded-lg border border-neutral-200 bg-white p-5">
+              <Phone className="mb-4 h-5 w-5 text-[#5700B0]" aria-hidden="true" />
+              <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                Telefone
+              </h3>
+              <p className="text-sm font-light leading-relaxed text-neutral-500">
+                Fale pelo WhatsApp para agendar sua avaliação ou tirar dúvidas
+                iniciais.
+              </p>
+              <p className="mt-2 text-sm font-medium text-neutral-900">
+                {siteInfo.phoneDisplay}
+              </p>
+            </div>
           </div>
 
           {detailed && (
             <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
-              Para confirmar disponibilidade, endereço completo e melhor horário,
-              fale diretamente pelo WhatsApp antes de se deslocar até a clínica.
+              Para confirmar disponibilidade e combinar o melhor horário, fale
+              diretamente pelo WhatsApp antes de se deslocar até a clínica.
             </p>
           )}
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <WhatsAppButton
               variant="purple"
-              message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação em Três Lagoas."
+              message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação no Terrace Business Center em Três Lagoas."
             >
               Agendar pelo WhatsApp
             </WhatsAppButton>

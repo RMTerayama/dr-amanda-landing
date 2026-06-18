@@ -20,7 +20,7 @@ const DifferentialsSection = () => {
             Diferenciais da clínica
           </span>
           <h2 className="max-w-xl text-4xl font-light leading-tight tracking-tight text-neutral-900 md:text-5xl">
-            Uma odontologia precisa, estética e pensada para a sua rotina.
+            Um atendimento pensado para você decidir com clareza e segurança.
           </h2>
         </Motion.div>
 
@@ -31,13 +31,17 @@ const DifferentialsSection = () => {
             return (
               <Motion.article
                 key={item.title}
-                className="rounded-lg border border-neutral-200 bg-[#FAFAFA] p-6 transition-colors duration-500 hover:border-[#5700B0]/25 hover:bg-white"
+                className="group relative overflow-hidden rounded-lg border border-neutral-200 bg-[#FAFAFA] p-6 transition-all duration-500 hover:border-[#5700B0]/25 hover:bg-white hover:shadow-[0_22px_55px_rgba(87,0,176,0.08)]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ y: -4 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.8, delay: index * 0.08, ease: smoothCurve }}
               >
-                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#5700B0]/10 text-[#5700B0]">
+                <span className="absolute right-5 top-5 font-serif text-5xl italic leading-none text-[#5700B0]/5 transition-colors duration-500 group-hover:text-[#5700B0]/10">
+                  0{index + 1}
+                </span>
+                <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-full bg-[#5700B0]/10 text-[#5700B0] transition-transform duration-500 group-hover:scale-110">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <h3 className="mb-3 text-lg font-medium tracking-tight text-neutral-950">

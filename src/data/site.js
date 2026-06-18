@@ -1,5 +1,7 @@
 import resinaAntesImg from '../assets/resinaAntes.png';
 import resinaDepoisImg from '../assets/ResinaDepois.jpeg';
+import reabilitacaoAntesImg from '../assets/reabilitacaoAntes.jpeg';
+import reabilitacaoDepoisImg from '../assets/reabilitacaoDepois.jpeg';
 import botoxAntesImg from '../assets/BotoxAntes.png';
 import botoxDepoisImg from '../assets/BotoxDepois.png';
 
@@ -9,19 +11,23 @@ export const siteInfo = {
   city: 'Três Lagoas',
   state: 'MS',
   cro: 'CRO-MS 7266',
-  whatsappNumber: '5511999999999',
+  whatsappNumber: '556781889094',
+  phoneDisplay: '+55 67 8188-9094',
   instagramUrl: 'https://www.instagram.com/amandaterayama/',
-  addressLine: 'Três Lagoas - MS',
-  addressDetail: 'Atendimento odontológico em Três Lagoas, MS',
-  mapQuery: 'Dra. Amanda Miyuki Terayama Três Lagoas MS',
+  addressLine: 'Terrace Business Center - Av. Dr. Eloy Chaves, 956 - Sala 405',
+  addressDetail: 'Centro, Três Lagoas - MS, 79602-000',
+  fullAddress:
+    'Terrace Business Center - Av. Dr. Eloy Chaves, 956 - Sala 405 - Centro, Três Lagoas - MS, 79602-000',
+  mapQuery:
+    'Terrace Business Center Av. Dr. Eloy Chaves 956 Sala 405 Centro Três Lagoas MS',
   hours: [
-    'Segunda a sexta: atendimento com horário agendado',
-    'Sábado: mediante disponibilidade',
+    'Manhã: 07:00 às 12:00',
+    'Tarde: 13:00 às 17:00',
   ],
 };
 
 export const buildWhatsAppUrl = (
-  message = 'Olá, Dra. Amanda! Gostaria de agendar uma avaliação.'
+  message = 'Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica.'
 ) => `https://wa.me/${siteInfo.whatsappNumber}?text=${encodeURIComponent(message)}`;
 
 export const featuredTreatments = [
@@ -29,7 +35,7 @@ export const featuredTreatments = [
     title: 'Lentes de Resina',
     eyebrow: 'Estética natural',
     description:
-      'Planejamento para transformar formato, proporção e harmonia do sorriso com resultado delicado e personalizado.',
+      'Para quem deseja corrigir formato, proporção e harmonia dos dentes com planejamento personalizado e resultado natural.',
     beforeImg: resinaAntesImg,
     afterImg: resinaDepoisImg,
     objectPosition: 'center 30%',
@@ -38,19 +44,22 @@ export const featuredTreatments = [
     title: 'Clareamento Dental',
     eyebrow: 'Sorriso mais luminoso',
     description:
-      'Protocolos seguros para clarear os dentes preservando saúde, conforto e naturalidade no resultado.',
+      'Protocolos acompanhados para clarear os dentes com segurança, conforto e preservação da saúde dental.',
   },
   {
     title: 'Reabilitação Estética e Funcional',
     eyebrow: 'Função antes da beleza',
     description:
-      'Recuperação de dentes desgastados, equilíbrio da mordida e reconstrução estética com olhar integral.',
+      'Para recuperar dentes desgastados, melhorar a mordida e devolver estética, conforto e segurança ao sorrir.',
+    beforeImg: reabilitacaoAntesImg,
+    afterImg: reabilitacaoDepoisImg,
+    objectPosition: 'center center',
   },
   {
     title: 'Harmonização Orofacial',
     eyebrow: 'Rosto e sorriso em equilíbrio',
     description:
-      'Técnicas de preenchimento e bioestimulação para valorizar traços naturais com sutileza.',
+      'Procedimentos para equilibrar rosto e sorriso com sutileza, respeitando seus traços naturais.',
     beforeImg: botoxAntesImg,
     afterImg: botoxDepoisImg,
     objectPosition: 'center 70%',
@@ -59,37 +68,37 @@ export const featuredTreatments = [
     title: 'Tratamento para Bruxismo',
     eyebrow: 'Conforto e proteção',
     description:
-      'Avaliação funcional, placas e ajustes indicados para proteger dentes, articulação e musculatura.',
+      'Avaliação para reduzir desgaste, dor muscular e tensão, protegendo dentes, articulação e musculatura.',
   },
 ];
 
 export const differentials = [
   {
-    title: 'Planejamento individual',
+    title: 'Diagnóstico claro',
     description:
-      'Cada caso é avaliado com atenção à estética, à função e à rotina do paciente.',
+      'Você entende o que precisa ser feito, por que é indicado e quais etapas fazem sentido para o seu caso.',
   },
   {
     title: 'Naturalidade no resultado',
     description:
-      'O objetivo é realçar a beleza do sorriso sem exageros e sem perder identidade.',
+      'A estética é planejada para melhorar o sorriso sem exageros e sem perder a sua identidade.',
   },
   {
-    title: 'Olhar funcional',
+    title: 'Função e conforto',
     description:
-      'A estética é construída sobre equilíbrio de mordida, saúde e conforto.',
+      'O plano considera mordida, mastigação, desgaste, dor e saúde bucal antes da decisão estética.',
   },
   {
-    title: 'Atendimento humanizado',
+    title: 'Agendamento direto',
     description:
-      'Consulta conduzida com escuta, clareza e cuidado em cada etapa do tratamento.',
+      'Fale pelo WhatsApp, envie sua necessidade inicial e receba orientação para marcar sua avaliação.',
   },
 ];
 
 export const treatmentCategories = [
   {
     title: 'Clínica Geral',
-    description: 'Cuidados preventivos e restauradores para manter a saúde bucal em dia.',
+    description: 'Prevenção, limpeza e restaurações para manter a saúde bucal em dia.',
     treatments: [
       'Consulta odontológica',
       'Limpeza dental',
@@ -101,7 +110,7 @@ export const treatmentCategories = [
   {
     title: 'Estética Dental',
     description:
-      'Tratamentos para melhorar forma, cor, proporção e harmonia do sorriso.',
+      'Para melhorar cor, formato, proporção e harmonia do sorriso com naturalidade.',
     treatments: [
       'Lentes de resina',
       'Facetas de resina',
@@ -114,7 +123,7 @@ export const treatmentCategories = [
   {
     title: 'Reabilitação Oral',
     description:
-      'Soluções para recuperar função mastigatória, conforto e aparência natural.',
+      'Para recuperar mastigação, conforto, dentes desgastados e aparência natural.',
     treatments: [
       'Recuperação de dentes desgastados',
       'Reabilitação funcional e estética',
@@ -131,7 +140,7 @@ export const treatmentCategories = [
   {
     title: 'Cirurgias',
     description:
-      'Procedimentos cirúrgicos odontológicos com planejamento e orientação cuidadosa.',
+      'Extrações e procedimentos cirúrgicos com avaliação, planejamento e orientação.',
     treatments: [
       'Extração de sisos',
       'Extrações dentárias',
@@ -141,13 +150,13 @@ export const treatmentCategories = [
   },
   {
     title: 'Prótese e Reabilitação',
-    description: 'Reposição e reconstrução de dentes com foco em estética e função.',
+    description: 'Reposição e reconstrução de dentes para devolver função e segurança.',
     treatments: ['Coroas dentárias', 'Próteses fixas', 'Próteses removíveis'],
   },
   {
     title: 'Implantodontia',
     description:
-      'Reabilitações com implantes para devolver segurança, mastigação e estética.',
+      'Implantes para recuperar mastigação, estética e confiança no dia a dia.',
     treatments: [
       'Implantes dentários',
       'Prótese sobre implantes',

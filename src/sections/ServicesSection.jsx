@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, ChevronsLeftRight, Sparkles } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { buildWhatsAppUrl, featuredTreatments } from '../data/site';
 
@@ -43,6 +43,17 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
     window.addEventListener('touchend', onEnd);
   };
 
+  const onKeyDown = (event) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      setSplit((current) => Math.max(5, current - 5));
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      setSplit((current) => Math.min(95, current + 5));
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -52,13 +63,17 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
       <img
         src={afterImg}
         alt={`Depois do tratamento ${title}`}
-        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
         style={{ objectPosition }}
       />
       <img
         src={beforeImg}
         alt={`Antes do tratamento ${title}`}
-        className="absolute inset-0 h-full w-full object-cover"
+        loading="lazy"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
         style={{ clipPath: `inset(0 ${100 - split}% 0 0)`, objectPosition }}
       />
 
@@ -68,13 +83,20 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
       />
 
       <div
-        className="absolute top-1/2 z-30 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center"
+        className="absolute top-1/2 z-30 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#5700B0]"
         style={{ left: `${split}%` }}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
+        onKeyDown={onKeyDown}
+        role="slider"
+        tabIndex={0}
+        aria-label={`Comparar antes e depois de ${title}`}
+        aria-valuemin={5}
+        aria-valuemax={95}
+        aria-valuenow={Math.round(split)}
       >
-        <div className="flex h-9 w-9 cursor-ew-resize items-center justify-center rounded-full border border-white/60 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.18)] transition-transform duration-150 hover:scale-110 active:scale-95">
-          <ArrowRight className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
+        <div className="flex h-10 w-10 cursor-ew-resize items-center justify-center rounded-full border border-white/70 bg-white shadow-[0_8px_26px_rgba(0,0,0,0.2)] ring-4 ring-white/25 transition-transform duration-150 hover:scale-110 active:scale-95">
+          <ChevronsLeftRight className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
         </div>
       </div>
 
@@ -93,9 +115,10 @@ const FeaturedTreatmentCard = ({ service, index }) => {
 
   return (
     <Motion.article
-      className="group flex min-h-[430px] flex-col overflow-hidden rounded-lg border border-neutral-200 bg-[#FAFAFA] transition-all duration-500 hover:border-[#5700B0]/30 hover:bg-white hover:shadow-[0_20px_45px_rgba(87,0,176,0.07)]"
+      className="group flex min-h-[430px] flex-col overflow-hidden rounded-lg border border-neutral-200 bg-[#FAFAFA] transition-all duration-500 hover:border-[#5700B0]/30 hover:bg-white hover:shadow-[0_24px_60px_rgba(87,0,176,0.1)]"
       initial={{ opacity: 0, y: 32 }}
       whileInView={{ opacity: 1, y: 0 }}
+      whileHover={{ y: -6 }}
       viewport={{ once: true, margin: '-10%' }}
       transition={{ duration: 0.9, delay: index * 0.08, ease: smoothCurve }}
     >
@@ -128,13 +151,13 @@ const FeaturedTreatmentCard = ({ service, index }) => {
         </p>
         <a
           href={buildWhatsAppUrl(
-            `Olá, Dra. Amanda! Gostaria de saber mais sobre ${service.title} em Três Lagoas.`
+            `Olá, Dra. Amanda! Gostaria de saber se ${service.title} é indicado para o meu caso.`
           )}
           target="_blank"
           rel="noopener noreferrer"
           className="mt-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#5700B0] transition-colors duration-300 hover:text-black"
         >
-          Conversar pelo WhatsApp
+          Tirar dúvidas pelo WhatsApp
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
@@ -157,7 +180,7 @@ const ServicesSection = () => {
               Tratamentos principais
             </span>
             <h2 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-neutral-900 md:text-5xl lg:text-6xl">
-              Os tratamentos pelos quais a clínica quer ser lembrada.
+              Tratamentos para melhorar estética, conforto e confiança ao sorrir.
             </h2>
           </Motion.div>
 
@@ -168,8 +191,9 @@ const ServicesSection = () => {
             viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.9, delay: 0.1, ease: smoothCurve }}
           >
-            A home destaca os procedimentos de maior posicionamento. A página de
-            tratamentos reúne todos os serviços oferecidos pela clínica.
+            Se você busca clarear os dentes, corrigir formato, tratar desgaste,
+            bruxismo ou recuperar função, a avaliação ajuda a indicar o caminho
+            mais seguro para o seu caso.
           </Motion.p>
         </div>
 
@@ -181,22 +205,23 @@ const ServicesSection = () => {
 
         <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-lg border border-neutral-200 bg-[#FAFAFA] p-6 md:flex-row md:items-center">
           <p className="max-w-2xl text-sm font-light leading-relaxed text-neutral-500">
-            Precisa de canal, extração de siso, implante, prótese ou outro
-            tratamento específico? Veja a lista completa organizada por categoria.
+            Não sabe exatamente qual tratamento precisa? Veja a lista completa ou
+            fale pelo WhatsApp para explicar sua necessidade inicial antes da
+            avaliação.
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href="/tratamentos"
               className="inline-flex items-center justify-center gap-3 rounded-full border border-black/15 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-colors duration-500 hover:border-[#5700B0] hover:text-[#5700B0]"
             >
-              Todos os tratamentos
+              Ver lista completa
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
             <WhatsAppButton
               variant="purple"
-              message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica."
+              message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação e entender qual tratamento é indicado para mim."
             >
-              Agendar
+              Agendar avaliação
             </WhatsAppButton>
           </div>
         </div>

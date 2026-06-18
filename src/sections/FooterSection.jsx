@@ -31,17 +31,17 @@ const FooterSection = () => {
             Agendamento
           </span>
           <h2 className="text-4xl font-light leading-tight tracking-tight sm:text-5xl md:text-7xl">
-            Sua transformação começa com uma avaliação.
+            O primeiro passo é entender o que o seu sorriso precisa.
           </h2>
           <p className="mx-auto mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-400 md:text-base">
-            Agende sua consulta em Três Lagoas e entenda como a {siteInfo.clinicName}
-            pode cuidar da estética, função e saúde do seu sorriso.
+            Agende uma avaliação em Três Lagoas e receba um plano claro para cuidar
+            da estética, função e saúde do seu sorriso.
           </p>
 
           <WhatsAppButton
             className="mt-10"
             variant="light"
-            message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação pelo site."
+            message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica pelo site."
           >
             Agendar avaliação
           </WhatsAppButton>
@@ -51,7 +51,7 @@ const FooterSection = () => {
       <div className="relative z-10 mt-auto w-full border-t border-white/10">
         <div className="mx-auto flex w-full max-w-[1400px] flex-col items-center justify-between gap-5 px-6 py-8 md:flex-row md:px-12">
           <div className="text-center text-[10px] font-light uppercase tracking-widest text-neutral-500 md:text-left">
-            © {new Date().getFullYear()} {siteInfo.clinicName}. {siteInfo.addressLine}.
+            © {new Date().getFullYear()} {siteInfo.clinicName}. {siteInfo.addressLine}. {siteInfo.phoneDisplay}.
           </div>
 
           <div className="flex flex-wrap justify-center gap-x-7 gap-y-3">
