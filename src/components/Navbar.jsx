@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { CalendarCheck, Menu, X } from 'lucide-react';
-import logoImg from '../assets/logo.png';
+import logoImg from '../assets/logo.webp';
 import { buildWhatsAppUrl } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];

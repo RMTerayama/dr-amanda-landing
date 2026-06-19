@@ -2,7 +2,7 @@ import React from 'react';
 import { motion as Motion } from 'framer-motion';
 import { ArrowRight, BadgeCheck, MapPin, Sparkles } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
-import drAmandaImg from '../assets/DrAmanda.png';
+import drAmandaImg from '../assets/DrAmanda.webp';
 import { siteInfo } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];

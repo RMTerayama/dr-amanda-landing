@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import drAmandaImg from '../assets/DrAmanda2.jpeg';
+import drAmandaImg from '../assets/DrAmanda2.webp';
 import { siteInfo } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];

@@ -2,6 +2,8 @@ import React from 'react';
 import { motion as Motion } from 'framer-motion';
 import { ArrowRight, CircleCheck, SearchCheck, Sparkles } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
+import FaqSection from '../sections/FaqSection';
+import TreatmentSeoSection from '../sections/TreatmentSeoSection';
 import {
   buildWhatsAppUrl,
   localSearchTerms,
@@ -128,6 +130,8 @@ const TreatmentsPage = () => {
         </div>
       </section>
 
+      <TreatmentSeoSection />
+
       <section className="bg-[#111] px-6 py-16 text-white md:px-12 md:py-24">
         <div className="mx-auto grid w-full max-w-[1400px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
@@ -153,6 +157,8 @@ const TreatmentsPage = () => {
           </div>
         </div>
       </section>
+
+      <FaqSection />
 
       <section className="bg-white px-6 py-16 text-center text-black md:px-12 md:py-24">
         <div className="mx-auto max-w-3xl">

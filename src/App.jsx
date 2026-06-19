@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import LocationPage from './pages/LocationPage';
 import TreatmentsPage from './pages/TreatmentsPage';
 import FooterSection from './sections/FooterSection';
+import { faqItems, googleReviews, siteInfo, treatmentSeoBlocks } from './data/site';
 
 const normalizePath = (pathname) => {
   const cleanPath = pathname.replace(/\/+$/, '');
@@ -39,6 +40,68 @@ const routes = {
       'Fale pelo WhatsApp com a Dra. Amanda Miyuki para agendar avaliação odontológica no Terrace Business Center em Três Lagoas.',
   },
 };
+
+const buildStructuredData = (baseUrl) => [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Dentist',
+    '@id': `${baseUrl}/#dentist`,
+    name: siteInfo.professionalName,
+    alternateName: siteInfo.clinicName,
+    description:
+      'Atendimento odontológico em Três Lagoas para estética dental, reabilitação oral, bruxismo, implantes, clínica geral e harmonização orofacial.',
+    url: baseUrl,
+    telephone: siteInfo.phoneDisplay,
+    medicalSpecialty: 'Dentistry',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Av. Dr. Eloy Chaves, 956 - Sala 405 - Terrace Business Center',
+      addressLocality: siteInfo.city,
+      addressRegion: siteInfo.state,
+      postalCode: '79602-000',
+      addressCountry: 'BR',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: `${siteInfo.city} - ${siteInfo.state}`,
+    },
+    openingHours: '07:00-12:00, 13:00-17:00',
+    sameAs: [siteInfo.instagramUrl, siteInfo.googleProfileUrl],
+    hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteInfo.mapQuery)}`,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: googleReviews.rating.replace(',', '.'),
+      bestRating: '5',
+      reviewCount: googleReviews.total,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${baseUrl}/#faq`,
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${baseUrl}/tratamentos#tratamentos-locais`,
+    name: 'Tratamentos odontológicos em Três Lagoas',
+    itemListElement: treatmentSeoBlocks.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `${baseUrl}/tratamentos#${item.id}`,
+      name: item.title,
+      description: item.description,
+    })),
+  },
+];
 
 function App() {
   const [currentPath, setCurrentPath] = useState(() => normalizePath(window.location.pathname));
@@ -87,6 +150,16 @@ function App() {
       document.head.appendChild(metaDescription);
     }
     metaDescription.setAttribute('content', route.description);
+
+    const baseUrl = window.location.origin;
+    let structuredData = document.querySelector('#structured-data-local-business');
+    if (!structuredData) {
+      structuredData = document.createElement('script');
+      structuredData.id = 'structured-data-local-business';
+      structuredData.type = 'application/ld+json';
+      document.head.appendChild(structuredData);
+    }
+    structuredData.textContent = JSON.stringify(buildStructuredData(baseUrl));
 
     window.scrollTo(0, 0);
   }, [currentPath, route.description, route.title]);
