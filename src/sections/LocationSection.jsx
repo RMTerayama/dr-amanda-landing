@@ -27,8 +27,8 @@ const LocationSection = ({ detailed = false }) => {
           </h2>
           <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
             A clínica recebe pacientes para avaliação odontológica, estética dental,
-            reabilitação oral, bruxismo, implantes e harmonização orofacial em uma
-            localização de fácil acesso no Centro.
+            reabilitação oral, bruxismo e implantes em uma localização de fácil
+            acesso no Centro.
           </p>
 
           <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">

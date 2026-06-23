@@ -118,7 +118,7 @@ const ContactPage = () => {
             <p className="mt-4 text-sm font-light leading-relaxed text-neutral-500">
               Para otimizar seu atendimento, conte pelo WhatsApp se você procura
               estética dental, dor, canal, implante, bruxismo, reabilitação ou
-              harmonização. Assim a avaliação já começa mais direcionada.
+              clínica geral. Assim a avaliação já começa mais direcionada.
             </p>
           </article>
         </Motion.div>

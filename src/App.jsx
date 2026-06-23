@@ -14,12 +14,25 @@ const normalizePath = (pathname) => {
   return cleanPath || '/';
 };
 
+const scrollToCurrentHash = () => {
+  const id = window.location.hash.replace('#', '');
+  if (!id) {
+    window.scrollTo({ top: 0, left: 0 });
+    return;
+  }
+
+  const target = document.getElementById(id);
+  if (target) {
+    target.scrollIntoView({ block: 'start' });
+  }
+};
+
 const routes = {
   '/': {
     component: HomePage,
     title: 'Dentista em Três Lagoas | Dra. Amanda Miyuki',
     description:
-      'Agende sua avaliação odontológica com a Dra. Amanda Miyuki no Terrace Business Center em Três Lagoas. Estética dental, reabilitação, bruxismo e harmonização.',
+      'Dentista em Três Lagoas no Terrace Business Center. Avaliação odontológica com documentação para estética dental, bruxismo e reabilitação oral.',
   },
   '/tratamentos': {
     component: TreatmentsPage,
@@ -49,7 +62,7 @@ const buildStructuredData = (baseUrl) => [
     name: siteInfo.professionalName,
     alternateName: siteInfo.clinicName,
     description:
-      'Atendimento odontológico em Três Lagoas para estética dental, reabilitação oral, bruxismo, implantes, clínica geral e harmonização orofacial.',
+      'Atendimento odontológico em Três Lagoas para estética dental, reabilitação oral, bruxismo, implantes e clínica geral.',
     url: baseUrl,
     telephone: siteInfo.phoneDisplay,
     medicalSpecialty: 'Dentistry',
@@ -128,6 +141,9 @@ function App() {
       event.preventDefault();
       window.history.pushState({}, '', `${url.pathname}${url.search}${url.hash}`);
       setCurrentPath(nextPath);
+      window.requestAnimationFrame(() => {
+        scrollToCurrentHash();
+      });
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -161,7 +177,7 @@ function App() {
     }
     structuredData.textContent = JSON.stringify(buildStructuredData(baseUrl));
 
-    window.scrollTo(0, 0);
+    window.setTimeout(scrollToCurrentHash, 0);
   }, [currentPath, route.description, route.title]);
 
   return (

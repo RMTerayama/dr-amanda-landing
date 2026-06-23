@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { ArrowRight, BadgeCheck, MapPin, Sparkles } from 'lucide-react';
+import { ArrowRight, MapPin, ShieldCheck, Sparkles, Star } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import drAmandaImg from '../assets/DrAmanda.webp';
-import { siteInfo } from '../data/site';
+import { googleReviews, siteInfo } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="relative flex min-h-screen w-full items-center overflow-hidden bg-[#FAFAFA] px-6 pb-16 pt-28 text-black md:px-12 md:pb-20 md:pt-32">
+    <section id="hero" className="relative flex min-h-[100svh] w-full items-center overflow-hidden bg-[#FAFAFA] px-5 pb-12 pt-28 text-black sm:px-6 md:px-12 md:pb-20 md:pt-32">
       <div
         className="absolute inset-0 opacity-[0.025]"
         style={{
@@ -18,88 +18,96 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-        <div>
+      <div className="relative z-10 mx-auto grid w-full max-w-[1400px] gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
+        <div className="max-w-full">
           <Motion.div
-            className="mb-7 inline-flex items-center gap-3 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-500 backdrop-blur"
-            initial={{ opacity: 0, y: 20 }}
+            className="mb-6 inline-flex max-w-full items-center gap-3 rounded-full border border-black/10 bg-white/70 px-4 py-2 text-[9px] font-semibold uppercase tracking-[0.18em] text-neutral-500 backdrop-blur sm:text-[10px]"
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: smoothCurve, delay: 0.2 }}
+            transition={{ duration: 0.65, ease: smoothCurve, delay: 0.05 }}
           >
             <MapPin className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
-            Terrace Business Center | Centro
+            <span className="truncate">Terrace Business Center | Centro</span>
           </Motion.div>
 
           <Motion.h1
-            className="max-w-5xl text-4xl font-light leading-tight tracking-tight text-neutral-950 sm:text-5xl md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 30 }}
+            className="max-w-[calc(100vw-2.5rem)] text-[2.08rem] font-light leading-[1.04] tracking-tight text-neutral-950 sm:max-w-full sm:text-5xl md:text-6xl lg:max-w-5xl lg:text-7xl"
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1, ease: smoothCurve, delay: 0.3 }}
+            transition={{ duration: 0.75, ease: smoothCurve, delay: 0.12 }}
           >
-            Dentista em Três Lagoas para cuidar do seu{' '}
-            <span className="font-serif italic text-[#5700B0]">sorriso</span>
+            <span className="block">Odontologia estética,</span>
+            <span className="block">bruxismo e reabilitação</span>
+            <span className="block">
+              em <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
+            </span>
           </Motion.h1>
 
           <Motion.p
             className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-500 md:text-base"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.45 }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.18 }}
           >
-            Agende uma avaliação com a Dra. Amanda Miyuki e entenda o melhor plano
-            para clarear, restaurar, harmonizar ou reabilitar com segurança e
-            naturalidade.
+            Agende uma avaliação com a Dra. Amanda Miyuki para entender, com
+            documentação e planejamento, o melhor caminho para clarear, restaurar,
+            proteger ou reabilitar o seu sorriso.
           </Motion.p>
 
           <Motion.div
             className="mt-9 flex flex-col gap-3 sm:flex-row"
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.6 }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.24 }}
           >
             <WhatsAppButton
               variant="dark"
               message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica em Três Lagoas."
             >
-              Agendar pelo WhatsApp
+              Agendar avaliação
             </WhatsAppButton>
             <a
               href="/tratamentos"
               className="inline-flex items-center justify-center gap-3 rounded-full border border-black/15 px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-black transition-colors duration-500 hover:border-[#5700B0] hover:text-[#5700B0]"
             >
-              Conhecer tratamentos
+              Ver tratamentos
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </a>
           </Motion.div>
 
           <Motion.div
-            className="mt-10 grid max-w-2xl gap-3 sm:grid-cols-2"
-            initial={{ opacity: 0, y: 14 }}
+            className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3"
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.75 }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.3 }}
           >
             <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
-              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
+              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
               <p className="text-xs font-light leading-relaxed text-neutral-500">
-                Clareamento, lentes de resina, reabilitação, bruxismo e
-                harmonização com diagnóstico individual.
+                {siteInfo.professionalName}. {siteInfo.cro}.
               </p>
             </div>
             <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
-              <BadgeCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
+              <Star className="mt-0.5 h-5 w-5 shrink-0 fill-[#5700B0] text-[#5700B0]" aria-hidden="true" />
               <p className="text-xs font-light leading-relaxed text-neutral-500">
-                {siteInfo.professionalName}, {siteInfo.cro}. Atendimento no
-                Terrace Business Center.
+                Nota {googleReviews.rating} no Google, com {googleReviews.total}{' '}
+                avaliações públicas.
+              </p>
+            </div>
+            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
+              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
+              <p className="text-xs font-light leading-relaxed text-neutral-500">
+                Clareamento, lentes de resina, reabilitação e bruxismo.
               </p>
             </div>
           </Motion.div>
         </div>
 
         <Motion.div
-          className="relative mx-auto flex h-[520px] w-full max-w-[520px] items-end justify-center md:h-[680px] lg:max-w-none"
-          initial={{ opacity: 0, scale: 0.96 }}
+          className="relative mx-auto flex h-[430px] w-full max-w-[430px] items-end justify-center sm:h-[520px] md:h-[680px] lg:max-w-none"
+          initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.3, ease: smoothCurve, delay: 0.35 }}
+          transition={{ duration: 0.85, ease: smoothCurve, delay: 0.16 }}
         >
           <div className="absolute bottom-0 left-1/2 h-[82%] w-[88%] -translate-x-1/2 rounded-t-[220px] rounded-b-lg bg-[#5700B0]/10" />
           <div className="relative h-full w-[88%] overflow-hidden rounded-t-[220px] rounded-b-lg border border-neutral-200 bg-[#f1f1f1] shadow-[0_30px_70px_rgba(0,0,0,0.08)]">
@@ -114,10 +122,10 @@ const HeroSection = () => {
           </div>
 
           <Motion.div
-            className="absolute bottom-8 left-0 max-w-[300px] rounded-lg border border-white/70 bg-white/80 p-5 shadow-[0_20px_45px_rgba(87,0,176,0.08)] backdrop-blur-xl"
-            initial={{ opacity: 0, x: -28 }}
+            className="absolute bottom-5 left-0 max-w-[280px] rounded-lg border border-white/70 bg-white/85 p-4 shadow-[0_20px_45px_rgba(87,0,176,0.08)] backdrop-blur-xl md:bottom-8 md:max-w-[300px] md:p-5"
+            initial={{ opacity: 0, x: -18 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.1, ease: smoothCurve, delay: 0.8 }}
+            transition={{ duration: 0.75, ease: smoothCurve, delay: 0.32 }}
           >
             <span className="mb-2 block text-[9px] font-semibold uppercase tracking-[0.22em] text-neutral-400">
               Avaliação com planejamento

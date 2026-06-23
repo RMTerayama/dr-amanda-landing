@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
-import { ArrowRight, ChevronsLeftRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Check, ChevronsLeftRight, Sparkles } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { buildWhatsAppUrl, featuredTreatments } from '../data/site';
 
@@ -106,12 +106,16 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
       <span className="absolute right-4 top-4 z-20 rounded-full bg-[#5700B0] px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.22em] text-white backdrop-blur-sm">
         Depois
       </span>
+      <span className="absolute bottom-4 left-1/2 z-20 -translate-x-1/2 rounded-full bg-black/55 px-3 py-1.5 text-[9px] font-semibold uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+        Arraste para comparar
+      </span>
     </div>
   );
 };
 
 const FeaturedTreatmentCard = ({ service, index }) => {
   const hasVisual = Boolean(service.beforeImg && service.afterImg);
+  const hasImage = Boolean(service.image);
 
   return (
     <Motion.article
@@ -120,7 +124,7 @@ const FeaturedTreatmentCard = ({ service, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -6 }}
       viewport={{ once: true, margin: '-10%' }}
-      transition={{ duration: 0.9, delay: index * 0.08, ease: smoothCurve }}
+      transition={{ duration: 0.68, delay: index * 0.05, ease: smoothCurve }}
     >
       <div className="h-56 overflow-hidden border-b border-neutral-200 bg-neutral-100 md:h-64">
         {hasVisual ? (
@@ -129,6 +133,15 @@ const FeaturedTreatmentCard = ({ service, index }) => {
             afterImg={service.afterImg}
             title={service.title}
             objectPosition={service.objectPosition}
+          />
+        ) : hasImage ? (
+          <img
+            src={service.image}
+            alt={service.imageAlt || service.title}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+            style={{ objectPosition: service.objectPosition || 'center center' }}
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-white">
@@ -149,6 +162,16 @@ const FeaturedTreatmentCard = ({ service, index }) => {
         <p className="mt-4 flex-grow text-sm font-light leading-relaxed text-neutral-500">
           {service.description}
         </p>
+        {service.points && (
+          <ul className="mt-5 grid gap-2 border-t border-neutral-200 pt-5">
+            {service.points.map((point) => (
+              <li key={point} className="flex items-start gap-2 text-xs font-light leading-relaxed text-neutral-700">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#5700B0]" aria-hidden="true" />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        )}
         <a
           href={buildWhatsAppUrl(
             `Olá, Dra. Amanda! Gostaria de saber se ${service.title} é indicado para o meu caso.`
@@ -197,7 +220,7 @@ const ServicesSection = () => {
           </Motion.p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {featuredTreatments.map((service, index) => (
             <FeaturedTreatmentCard key={service.title} service={service} index={index} />
           ))}

@@ -13,6 +13,25 @@ import {
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
+const patientNeeds = [
+  {
+    title: 'Quero melhorar a estética',
+    description: 'Clareamento, lentes de resina, formato, proporção e acabamento do sorriso.',
+  },
+  {
+    title: 'Tenho desgaste ou bruxismo',
+    description: 'Avaliação de mordida, dor muscular, placa de proteção e reabilitação quando necessário.',
+  },
+  {
+    title: 'Estou com dor ou desconforto',
+    description: 'Triagem para canal, restaurações, extrações, siso e outras demandas de clínica geral.',
+  },
+  {
+    title: 'Perdi ou quebrei um dente',
+    description: 'Planejamento para próteses, implantes e reconstruções com foco em função e segurança.',
+  },
+];
+
 const TreatmentsPage = () => {
   return (
     <>
@@ -26,8 +45,8 @@ const TreatmentsPage = () => {
             <span className="mb-5 block text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-400">
               Tratamentos odontológicos em Três Lagoas
             </span>
-            <h1 className="max-w-4xl text-4xl font-light leading-tight tracking-tight text-neutral-950 md:text-6xl lg:text-7xl">
-              Encontre o tratamento indicado para o seu{' '}
+            <h1 className="max-w-full text-[2.35rem] font-light leading-[1.02] tracking-tight text-neutral-950 sm:text-5xl md:text-6xl lg:max-w-4xl lg:text-7xl">
+              Tratamentos para estética, dor e função do{' '}
               <span className="font-serif italic text-[#5700B0]">sorriso</span>
             </h1>
             <p className="mt-7 max-w-2xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
@@ -41,7 +60,7 @@ const TreatmentsPage = () => {
             className="rounded-lg border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)]"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: smoothCurve, delay: 0.12 }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.08 }}
           >
             <Sparkles className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
             <h2 className="text-xl font-light leading-tight tracking-tight text-neutral-950">
@@ -65,6 +84,29 @@ const TreatmentsPage = () => {
 
       <section className="bg-white px-6 py-16 text-black md:px-12 md:py-24">
         <div className="mx-auto w-full max-w-[1400px]">
+          <div className="mb-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {patientNeeds.map((item, index) => (
+              <Motion.article
+                key={item.title}
+                className="rounded-lg border border-neutral-200 bg-[#FAFAFA] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[#5700B0]/30 hover:bg-white hover:shadow-[0_20px_45px_rgba(87,0,176,0.06)]"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-10%' }}
+                transition={{ duration: 0.6, delay: index * 0.04, ease: smoothCurve }}
+              >
+                <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#5700B0]/10 text-[11px] font-semibold text-[#5700B0]">
+                  0{index + 1}
+                </span>
+                <h2 className="text-lg font-medium tracking-tight text-neutral-950">
+                  {item.title}
+                </h2>
+                <p className="mt-3 text-sm font-light leading-relaxed text-neutral-500">
+                  {item.description}
+                </p>
+              </Motion.article>
+            ))}
+          </div>
+
           <div className="mb-10 flex flex-col justify-between gap-6 md:mb-14 md:flex-row md:items-end">
             <div>
               <span className="mb-4 block text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-400">

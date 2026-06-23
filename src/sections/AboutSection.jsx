@@ -5,119 +5,133 @@ import { siteInfo } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
+const clinicalPoints = [
+  'Fotografias e observação clínica',
+  'Mordida, desgaste e restaurações',
+  'Prioridades antes da estética',
+];
+
 const AboutSection = () => {
   return (
-    <section id="about" className="bg-white text-black min-h-screen w-full relative flex items-center justify-center overflow-hidden">
-      
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 py-20 md:py-28 flex flex-col md:flex-row items-center justify-between relative z-10 gap-12 lg:gap-20">
-        
-        {/* Lado Esquerdo: Fotografia / Manifesto Visual */}
-        <div className="w-full md:w-1/2 h-[430px] md:h-[680px] flex items-center justify-center relative">
-          <Motion.div 
-            className="w-full max-w-lg h-full max-h-[80vh] relative"
-            initial={{ opacity: 0, scale: 0.95 }}
+    <section id="about" className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-white text-black">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1400px] flex-col items-center justify-between gap-12 px-6 py-20 md:flex-row md:px-12 md:py-28 lg:gap-20">
+        <div className="relative flex h-[430px] w-full items-center justify-center md:h-[680px] md:w-1/2">
+          <Motion.div
+            className="relative h-full max-h-[80vh] w-full max-w-lg"
+            initial={{ opacity: 0, scale: 0.96 }}
             whileInView={{ opacity: 1, scale: 1 }}
             whileHover={{ y: -6 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 1.4, ease: smoothCurve }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.8, ease: smoothCurve }}
           >
-            {/* Foto Principal com bordas assimétricas ao estilo Vogue */}
-            <div className="w-full h-full bg-[#fcfcfc] border border-neutral-100 rounded-tr-[120px] md:rounded-tr-[200px] rounded-bl-[80px] shadow-sm relative overflow-hidden group">
-              <div className="absolute inset-0 bg-neutral-100/20 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent z-10 pointer-events-none"></div>
+            <div className="group relative h-full w-full overflow-hidden rounded-bl-[80px] rounded-tr-[120px] border border-neutral-100 bg-[#fcfcfc] shadow-sm md:rounded-tr-[200px]">
+              <div className="pointer-events-none absolute inset-0 z-10 bg-neutral-100/20 mix-blend-multiply transition-colors duration-700 group-hover:bg-transparent" />
               <img
                 src={drAmandaImg}
                 alt="Dra. Amanda Miyuki em rotina clínica"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 style={{ objectPosition: 'center 30%' }}
               />
             </div>
 
-            {/* Micro detalhe de design (selo flutuante) */}
-            <Motion.div 
-              className="absolute -bottom-6 right-0 md:bottom-12 md:-right-8 w-24 h-24 md:w-32 md:h-32 bg-white rounded-full flex items-center justify-center shadow-[0_15px_30px_rgba(0,0,0,0.06)] border border-neutral-100 z-20"
-              animate={{ rotate: 360 }}
-              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            <Motion.div
+              className="absolute -bottom-6 right-0 z-20 flex h-28 w-28 flex-col items-center justify-center rounded-full border border-neutral-100 bg-white text-center shadow-[0_15px_30px_rgba(0,0,0,0.06)] md:bottom-12 md:-right-8 md:h-32 md:w-32"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-10%' }}
+              transition={{ duration: 0.7, ease: smoothCurve, delay: 0.15 }}
             >
-              <svg viewBox="0 0 100 100" className="w-[85%] h-[85%] text-neutral-400">
-                <path id="textPath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none"></path>
-                <text className="font-sans text-[11px] font-semibold tracking-[0.2em] uppercase">
-                  <textPath href="#textPath" startOffset="0%">⬢ estética avançada ⬢ dr amanda</textPath>
-                </text>
-              </svg>
+              <span className="text-[9px] font-semibold uppercase tracking-[0.18em] text-neutral-400">
+                Registro
+              </span>
+              <strong className="mt-1 text-lg font-medium text-neutral-950 md:text-xl">
+                {siteInfo.cro}
+              </strong>
+              <span className="mt-1 max-w-[84px] text-[10px] font-light leading-tight text-neutral-500">
+                Cirurgiã-dentista
+              </span>
             </Motion.div>
           </Motion.div>
         </div>
 
-        {/* Lado Direito: Declaração / Tipografia */}
-        <div className="w-full md:w-1/2 h-full flex flex-col justify-center">
-          
-          <Motion.div 
+        <div className="flex h-full w-full flex-col justify-center md:w-1/2">
+          <Motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.2 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.1 }}
             className="mb-8"
           >
-            <span className="text-[10px] md:text-xs uppercase tracking-widest font-semibold text-neutral-400 mb-2 block">
+            <span className="mb-2 block text-[10px] font-semibold uppercase tracking-widest text-neutral-400 md:text-xs">
               Sobre a profissional
             </span>
-            <div className="w-12 h-[1px] bg-neutral-300"></div>
+            <div className="h-px w-12 bg-neutral-300" />
           </Motion.div>
 
-          <Motion.h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] leading-[1.1] tracking-tight font-light text-neutral-900 mb-8"
-            initial={{ opacity: 0, y: 30 }}
+          <Motion.h2
+            className="mb-8 text-3xl font-light leading-[1.1] tracking-tight text-neutral-900 sm:text-4xl md:text-5xl lg:text-[4rem]"
+            initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 1.2, ease: smoothCurve, delay: 0.3 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.75, ease: smoothCurve, delay: 0.16 }}
           >
-            Uma avaliação completa para indicar o tratamento certo para o seu sorriso.
+            Uma avaliação documentada antes de decidir qualquer tratamento.
           </Motion.h2>
 
-          <Motion.div 
-            className="text-neutral-500 font-light text-sm md:text-base leading-relaxed max-w-md space-y-6"
-            initial={{ opacity: 0, y: 20 }}
+          <Motion.div
+            className="max-w-md space-y-6 text-sm font-light leading-relaxed text-neutral-500 md:text-base"
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 1, ease: smoothCurve, delay: 0.5 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.22 }}
           >
             <p>
               A {siteInfo.clinicName} atende em Três Lagoas com foco em escuta,
-              diagnóstico e planejamento. Antes de qualquer procedimento, cada caso
-              é avaliado considerando estética, saúde bucal, mordida, função
-              mastigatória e conforto.
+              diagnóstico e planejamento. Antes de qualquer procedimento, a consulta
+              observa queixa principal, gengiva, mordida, desgaste dental,
+              restaurações e expectativa estética.
             </p>
             <p>
-              A proposta é orientar você com clareza: o que pode ser feito, quais
-              etapas são necessárias e qual abordagem preserva naturalidade,
-              segurança e saúde ao longo do tratamento.
+              A proposta é transformar a avaliação em um plano compreensível: o que
+              é prioridade, quais etapas são necessárias e como preservar saúde,
+              função e naturalidade ao longo do tratamento.
             </p>
           </Motion.div>
 
-          {/* Sub signature */}
-          <Motion.div 
-            className="mt-12 md:mt-16 pt-8 border-t border-neutral-100"
+          <Motion.ul
+            className="mt-8 grid gap-3 sm:grid-cols-3"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-10%' }}
+            transition={{ duration: 0.7, ease: smoothCurve, delay: 0.28 }}
+          >
+            {clinicalPoints.map((point) => (
+              <li key={point} className="rounded-lg border border-neutral-200 bg-[#FAFAFA] p-4 text-xs font-light leading-relaxed text-neutral-600">
+                {point}
+              </li>
+            ))}
+          </Motion.ul>
+
+          <Motion.div
+            className="mt-12 border-t border-neutral-100 pt-8 md:mt-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.7 }}
+            transition={{ duration: 0.7, delay: 0.32 }}
           >
-            <p className="font-serif italic text-2xl text-neutral-800 mb-1">
+            <p className="mb-1 font-serif text-2xl italic text-neutral-800">
               Amanda Miyuki
             </p>
-            <span className="text-[10px] uppercase tracking-[0.2em] text-neutral-400 font-semibold">
-              Cirurgiã-dentista ⬢ {siteInfo.cro}
+            <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-400">
+              Cirurgiã-dentista | {siteInfo.cro}
             </span>
           </Motion.div>
-          
         </div>
-
       </div>
     </section>
   );
 };
 
 export default AboutSection;
-

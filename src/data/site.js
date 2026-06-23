@@ -1,9 +1,10 @@
 import resinaAntesImg from '../assets/resinaAntes.webp';
 import resinaDepoisImg from '../assets/ResinaDepois.webp';
+import clareamentoAntesImg from '../assets/clareamentoAntes.jpeg';
+import clareamentoDepoisImg from '../assets/clareamentoDepois.jpeg';
 import reabilitacaoAntesImg from '../assets/reabilitacaoAntes.webp';
 import reabilitacaoDepoisImg from '../assets/reabilitacaoDepois.webp';
-import botoxAntesImg from '../assets/BotoxAntes.webp';
-import botoxDepoisImg from '../assets/BotoxDepois.webp';
+import bruxismoImg from '../assets/Bruxismo.jpeg';
 
 export const siteInfo = {
   clinicName: 'Dra. Amanda Miyuki',
@@ -14,7 +15,7 @@ export const siteInfo = {
   whatsappNumber: '556781889094',
   phoneDisplay: '+55 67 8188-9094',
   instagramUrl: 'https://www.instagram.com/amandaterayama/',
-  googleProfileUrl: 'https://share.google/mW4UWe9p7Z9y9bu06',
+  googleProfileUrl: 'https://share.google/M24hfZMCReFO2XOuO',
   addressLine: 'Terrace Business Center - Av. Dr. Eloy Chaves, 956 - Sala 405',
   addressDetail: 'Centro, Três Lagoas - MS, 79602-000',
   fullAddress:
@@ -35,32 +36,36 @@ export const googleReviews = {
   rating: '5,0',
   total: 5,
   source: 'Google',
-  businessName: 'Amanda Miyuki Terayama | Odontologia Estética e Harmonização Facial',
+  businessName: 'Amanda Miyuki Terayama | Odontologia Estética',
   profileUrl: siteInfo.googleProfileUrl,
   highlights: [
     {
-      author: 'Raquel F.',
+      author: 'Raquel Felício',
       title: 'Atendimento acolhedor',
+      quote: 'Lugar incrível, aconchegante e bem iluminado.',
       summary:
-        'Destaca a escuta durante a avaliação, o cuidado no atendimento e o ambiente agradável do consultório.',
+        'Relata uma avaliação com escuta, paciência e liberdade para explicar o que queria melhorar.',
     },
     {
-      author: 'Richelle A.',
-      title: 'Resultado caprichoso',
+      author: 'Richelle Anjos',
+      title: 'Capricho nos detalhes',
+      quote: 'Super caprichosa e detalhista',
       summary:
-        'Ressalta a atenção aos detalhes, o acabamento do procedimento e a confiança para voltar ao consultório.',
+        'Destaca o resultado do procedimento, o cuidado no acabamento e a confiança para voltar ao consultório.',
     },
     {
-      author: 'Ana L.',
-      title: 'Clareza e cuidado',
+      author: 'Ana Luiza',
+      title: 'Consultório confortável',
+      quote: 'consultório confortável e limpo',
       summary:
-        'Menciona dúvidas respondidas, atendimento cuidadoso e uma experiência confortável durante o tratamento.',
+        'Menciona dúvidas respondidas, atendimento cuidadoso e bom resultado no tratamento dental.',
     },
     {
-      author: 'Yuri G.',
+      author: 'Yuri Gabriel',
       title: 'Profissional dedicada',
+      quote: 'super dedicada e atenciosa',
       summary:
-        'Valoriza a dedicação, a atenção com o paciente e a estrutura moderna para receber quem procura atendimento.',
+        'Valoriza a atenção com os pacientes, a estrutura moderna e a experiência positiva no atendimento.',
     },
   ],
 };
@@ -74,12 +79,17 @@ export const featuredTreatments = [
     beforeImg: resinaAntesImg,
     afterImg: resinaDepoisImg,
     objectPosition: 'center 30%',
+    points: ['Planejamento de formato e proporção', 'Avaliação de mordida e cor'],
   },
   {
     title: 'Clareamento Dental',
-    eyebrow: 'Sorriso mais luminoso',
+    eyebrow: 'Controle de cor',
     description:
-      'Protocolos acompanhados para clarear os dentes com segurança, conforto e preservação da saúde dental.',
+      'Clareamento acompanhado para melhorar a cor dos dentes com avaliação de sensibilidade, restaurações e histórico dental.',
+    beforeImg: clareamentoAntesImg,
+    afterImg: clareamentoDepoisImg,
+    objectPosition: 'center 48%',
+    points: ['Registro da cor inicial', 'Protocolo conforme sensibilidade'],
   },
   {
     title: 'Reabilitação Estética e Funcional',
@@ -89,44 +99,40 @@ export const featuredTreatments = [
     beforeImg: reabilitacaoAntesImg,
     afterImg: reabilitacaoDepoisImg,
     objectPosition: 'center center',
-  },
-  {
-    title: 'Harmonização Orofacial',
-    eyebrow: 'Rosto e sorriso em equilíbrio',
-    description:
-      'Procedimentos para equilibrar rosto e sorriso com sutileza, respeitando seus traços naturais.',
-    beforeImg: botoxAntesImg,
-    afterImg: botoxDepoisImg,
-    objectPosition: 'center 70%',
+    points: ['Recuperação de desgaste dental', 'Plano funcional e estético'],
   },
   {
     title: 'Tratamento para Bruxismo',
     eyebrow: 'Conforto e proteção',
     description:
       'Avaliação para reduzir desgaste, dor muscular e tensão, protegendo dentes, articulação e musculatura.',
+    image: bruxismoImg,
+    imageAlt: 'Placa de bruxismo posicionada sobre arcada dentária',
+    objectPosition: 'center center',
+    points: ['Proteção contra sobrecarga', 'Avaliação de dor e desgaste'],
   },
 ];
 
 export const differentials = [
   {
-    title: 'Diagnóstico claro',
+    title: 'Avaliação com documentação',
     description:
-      'Você entende o que precisa ser feito, por que é indicado e quais etapas fazem sentido para o seu caso.',
+      'A consulta observa queixa, fotografias, mordida, desgaste, restaurações e prioridades antes de indicar procedimentos.',
   },
   {
-    title: 'Naturalidade no resultado',
+    title: 'Planejamento por etapas',
     description:
-      'A estética é planejada para melhorar o sorriso sem exageros e sem perder a sua identidade.',
+      'Você entende o que precisa ser feito agora, o que pode esperar e quais cuidados influenciam o resultado.',
   },
   {
-    title: 'Função e conforto',
+    title: 'Estética com função',
     description:
-      'O plano considera mordida, mastigação, desgaste, dor e saúde bucal antes da decisão estética.',
+      'Cor, formato e proporção são avaliados junto com mordida, mastigação, desgaste, dor e saúde bucal.',
   },
   {
-    title: 'Agendamento direto',
+    title: 'Atendimento local e direto',
     description:
-      'Fale pelo WhatsApp, envie sua necessidade inicial e receba orientação para marcar sua avaliação.',
+      'O contato é feito pelo WhatsApp da clínica, com atendimento no Terrace Business Center, no Centro de Três Lagoas.',
   },
 ];
 
@@ -198,19 +204,6 @@ export const treatmentCategories = [
       'Reabilitação sobre implantes',
     ],
   },
-  {
-    title: 'Harmonização Orofacial',
-    description: 'Procedimentos faciais para equilibrar proporções e valorizar traços.',
-    treatments: [
-      'Preenchimento labial',
-      'Preenchimento facial',
-      'Rinomodelação',
-      'Preenchimento de olheiras',
-      'Preenchimento de mento',
-      'Preenchimento de mandíbula',
-      'Bioestimuladores de colágeno',
-    ],
-  },
 ];
 
 export const treatmentSeoBlocks = [
@@ -258,15 +251,6 @@ export const treatmentSeoBlocks = [
     intent:
       'O primeiro passo é avaliar saúde bucal, exames, espaço disponível e o tipo de reabilitação mais indicado.',
     terms: ['implante dentário', 'prótese sobre implante', 'dente perdido'],
-  },
-  {
-    id: 'harmonizacao-orofacial',
-    title: 'Harmonização orofacial em Três Lagoas',
-    description:
-      'Procedimentos para equilibrar traços faciais e sorriso com sutileza, respeitando proporções naturais.',
-    intent:
-      'A indicação depende de avaliação facial, objetivos, histórico de procedimentos e planejamento conservador.',
-    terms: ['harmonização orofacial', 'preenchimento facial', 'bioestimulador'],
   },
 ];
 

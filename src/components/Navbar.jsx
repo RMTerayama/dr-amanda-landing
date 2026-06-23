@@ -8,8 +8,9 @@ const smoothCurve = [0.22, 1, 0.36, 1];
 
 const navLinks = [
   { label: 'Início', href: '/' },
-  { label: 'Tratamentos', href: '/tratamentos' },
-  { label: 'Localização', href: '/localizacao' },
+  { label: 'Tratamentos', href: '/#services' },
+  { label: 'Avaliações', href: '/#avaliacoes' },
+  { label: 'Localização', href: '/#localizacao' },
   { label: 'Contato', href: '/contato' },
 ];
 
@@ -54,7 +55,7 @@ const Navbar = ({ currentPath = '/' }) => {
 
         <ul className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => {
-            const active = currentPath === link.href;
+            const active = currentPath === link.href || (link.href === '/' && currentPath === '/');
 
             return (
               <li key={link.label}>
@@ -99,7 +100,7 @@ const Navbar = ({ currentPath = '/' }) => {
           <div className="absolute left-0 right-0 top-[calc(100%+10px)] rounded-lg border border-black/5 bg-white p-3 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:hidden">
             <ul className="grid gap-1">
               {navLinks.map((link) => {
-                const active = currentPath === link.href;
+                const active = currentPath === link.href || (link.href === '/' && currentPath === '/');
 
                 return (
                   <li key={link.label}>

@@ -22,18 +22,17 @@ const GoogleReviewsSection = () => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10%' }}
-            transition={{ duration: 0.9, ease: smoothCurve }}
+            transition={{ duration: 0.7, ease: smoothCurve }}
           >
             <span className="mb-5 block text-[10px] font-semibold uppercase tracking-[0.24em] text-neutral-400">
               Avaliações no Google
             </span>
             <h2 className="max-w-3xl text-4xl font-light leading-tight tracking-tight text-neutral-950 md:text-6xl">
-              Prova social de quem já passou pelo atendimento.
+              Avaliações reais de quem já passou pelo atendimento.
             </h2>
             <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500 md:text-base">
-              Antes de agendar, veja os pontos que pacientes destacam no perfil
-              público da Dra. Amanda no Google: acolhimento, cuidado nos detalhes,
-              naturalidade e clareza durante a avaliação.
+              Os depoimentos públicos destacam acolhimento, capricho nos detalhes,
+              consultório confortável e dedicação no atendimento.
             </p>
           </Motion.div>
 
@@ -42,7 +41,7 @@ const GoogleReviewsSection = () => {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10%' }}
-            transition={{ duration: 0.9, delay: 0.08, ease: smoothCurve }}
+            transition={{ duration: 0.75, delay: 0.06, ease: smoothCurve }}
           >
             <div className="pointer-events-none absolute -right-12 -top-16 h-44 w-44 rounded-full bg-[#5700B0]/10 blur-3xl" />
             <div className="relative flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
@@ -76,7 +75,7 @@ const GoogleReviewsSection = () => {
                   className="inline-flex items-center justify-center gap-3 rounded-full bg-black px-6 py-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-white transition-all duration-500 hover:bg-[#5700B0]"
                 >
                   <ExternalLink className="h-4 w-4" aria-hidden="true" />
-                  Ver no Google
+                  Ver avaliações
                 </a>
                 <a
                   href={buildWhatsAppUrl(
@@ -98,23 +97,26 @@ const GoogleReviewsSection = () => {
           {googleReviews.highlights.map((review, index) => (
             <Motion.article
               key={review.title}
-              className="group flex min-h-[260px] flex-col rounded-lg border border-neutral-200 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#5700B0]/30 hover:shadow-[0_22px_55px_rgba(87,0,176,0.08)]"
+              className="group flex min-h-[300px] flex-col rounded-lg border border-neutral-200 bg-white p-6 transition-all duration-500 hover:-translate-y-1 hover:border-[#5700B0]/30 hover:shadow-[0_22px_55px_rgba(87,0,176,0.08)]"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.75, delay: index * 0.06, ease: smoothCurve }}
+              transition={{ duration: 0.65, delay: index * 0.05, ease: smoothCurve }}
             >
               <Quote
-                className="mb-6 h-6 w-6 text-[#5700B0] transition-transform duration-500 group-hover:scale-110"
+                className="mb-5 h-6 w-6 text-[#5700B0] transition-transform duration-500 group-hover:scale-110"
                 aria-hidden="true"
               />
               <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-400">
-                Síntese da avaliação
+                Trecho público
               </p>
-              <h3 className="mt-3 text-xl font-light tracking-tight text-neutral-950">
+              <blockquote className="mt-3 text-xl font-light leading-snug tracking-tight text-neutral-950">
+                "{review.quote}"
+              </blockquote>
+              <h3 className="mt-5 text-sm font-semibold uppercase tracking-[0.18em] text-[#5700B0]">
                 {review.title}
               </h3>
-              <p className="mt-4 flex-grow text-sm font-light leading-relaxed text-neutral-500">
+              <p className="mt-3 flex-grow text-sm font-light leading-relaxed text-neutral-500">
                 {review.summary}
               </p>
               <div className="mt-6 flex items-center justify-between gap-4 border-t border-neutral-100 pt-5">
@@ -131,7 +133,7 @@ const GoogleReviewsSection = () => {
         </div>
 
         <p className="mt-6 max-w-3xl text-xs font-light leading-relaxed text-neutral-500">
-          Os cards resumem temas recorrentes das avaliações públicas. Para ler os
+          Os cards usam trechos curtos de avaliações públicas. Para ler os
           depoimentos completos e atualizados, acesse o perfil no Google.
         </p>
       </div>
