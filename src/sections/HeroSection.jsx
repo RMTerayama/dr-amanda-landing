@@ -3,7 +3,7 @@ import { motion as Motion } from 'framer-motion';
 import { ArrowRight, MapPin, ShieldCheck, Sparkles, Star } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import drAmandaImg from '../assets/DrAmanda.webp';
-import { googleReviews, siteInfo } from '../data/site';
+import { siteInfo } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
@@ -36,10 +36,10 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: smoothCurve, delay: 0.12 }}
           >
-            <span className="block">Odontologia estética,</span>
-            <span className="block">bruxismo e reabilitação</span>
+            <span className="block">Excelência em Estética</span>
+            <span className="block">do Sorriso e</span>
             <span className="block">
-              em <span className="font-serif italic text-[#5700B0]">Três Lagoas</span>
+              <span className="font-serif italic text-[#5700B0]">Reabilitação Oral</span>
             </span>
           </Motion.h1>
 
@@ -95,9 +95,9 @@ const HeroSection = () => {
                 <Star className="mt-0.5 h-4 w-4 shrink-0 fill-[#5700B0] text-[#5700B0]" aria-hidden="true" />
                 <div>
                   <dt className="font-semibold uppercase tracking-[0.18em] text-neutral-900">
-                    Google {googleReviews.rating}
+                    Avaliações no Google
                   </dt>
-                  <dd className="mt-1">{googleReviews.total} avaliações públicas</dd>
+                  <dd className="mt-1">Trechos públicos no perfil da clínica</dd>
                 </div>
               </div>
               <div className="flex gap-3 sm:pl-4">
@@ -132,7 +132,7 @@ const HeroSection = () => {
           </div>
 
           <Motion.div
-            className="absolute bottom-6 left-0 max-w-[280px] border border-black/5 border-l-2 border-l-[#5700B0] bg-white/95 py-3 pl-4 pr-3 text-neutral-950 shadow-[0_18px_42px_rgba(0,0,0,0.14)] backdrop-blur-md md:bottom-9 md:max-w-[310px] md:py-4 md:pl-5"
+            className="absolute bottom-6 left-0 max-w-[280px] border border-neutral-200 border-l-4 border-l-[#5700B0] bg-white py-4 pl-5 pr-4 text-neutral-950 shadow-[0_18px_42px_rgba(0,0,0,0.18)] md:bottom-9 md:max-w-[320px]"
             initial={{ opacity: 0, x: -18 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75, ease: smoothCurve, delay: 0.32 }}

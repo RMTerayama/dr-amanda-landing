@@ -7,7 +7,7 @@ import HomePage from './pages/HomePage';
 import LocationPage from './pages/LocationPage';
 import TreatmentsPage from './pages/TreatmentsPage';
 import FooterSection from './sections/FooterSection';
-import { faqItems, googleReviews, siteInfo, treatmentSeoBlocks } from './data/site';
+import { faqItems, siteInfo, treatmentSeoBlocks } from './data/site';
 
 const normalizePath = (pathname) => {
   const cleanPath = pathname.replace(/\/+$/, '');
@@ -81,12 +81,6 @@ const buildStructuredData = (baseUrl) => [
     openingHours: '07:00-12:00, 13:00-17:00',
     sameAs: [siteInfo.instagramUrl, siteInfo.googleProfileUrl],
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(siteInfo.mapQuery)}`,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: googleReviews.rating.replace(',', '.'),
-      bestRating: '5',
-      reviewCount: googleReviews.total,
-    },
   },
   {
     '@context': 'https://schema.org',

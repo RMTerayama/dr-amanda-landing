@@ -51,20 +51,15 @@ const GoogleReviewsSection = () => {
                   <ShieldCheck className="h-4 w-4" aria-hidden="true" />
                   Perfil público do Google
                 </div>
-                <div className="flex items-end gap-4">
-                  <span className="text-6xl font-light tracking-tight text-neutral-950 md:text-7xl">
-                    {googleReviews.rating}
-                  </span>
-                  <div className="pb-2">
-                    <div className="flex gap-1 text-[#F59E0B]" aria-label="Nota máxima no Google">
-                      {stars.map((star) => (
-                        <Star key={star} className="h-5 w-5 fill-current" aria-hidden="true" />
-                      ))}
-                    </div>
-                    <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
-                      {googleReviews.total} avaliações públicas
-                    </p>
+                <div>
+                  <div className="flex gap-1 text-[#F59E0B]" aria-label="Avaliações no Google">
+                    {stars.map((star) => (
+                      <Star key={star} className="h-6 w-6 fill-current" aria-hidden="true" />
+                    ))}
                   </div>
+                  <p className="mt-3 text-xs font-semibold uppercase tracking-[0.18em] text-neutral-500">
+                    Avaliações públicas no perfil da clínica
+                  </p>
                 </div>
               </div>
 
