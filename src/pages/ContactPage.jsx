@@ -49,12 +49,12 @@ const ContactPage = () => {
         </Motion.div>
 
         <Motion.div
-          className="grid gap-5 sm:grid-cols-2"
+          className="grid border-y border-neutral-200 sm:grid-cols-2"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: smoothCurve, delay: 0.1 }}
         >
-          <article className="rounded-lg border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)] sm:col-span-2">
+          <article className="border-b border-neutral-200 py-6 sm:col-span-2">
             <MessageCircle className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
             <h2 className="text-2xl font-light tracking-tight text-neutral-950">
               Atendimento pelo WhatsApp
@@ -77,7 +77,7 @@ const ContactPage = () => {
             </WhatsAppButton>
           </article>
 
-          <article className="rounded-lg border border-neutral-200 bg-white p-6">
+          <article className="border-b border-neutral-200 py-6 sm:border-r sm:pr-6">
             <MapPin className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
             <h2 className="text-xl font-light tracking-tight text-neutral-950">
               Localização
@@ -98,7 +98,7 @@ const ContactPage = () => {
             </a>
           </article>
 
-          <article className="rounded-lg border border-neutral-200 bg-white p-6">
+          <article className="border-b border-neutral-200 py-6 sm:pl-6">
             <Clock className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
             <h2 className="text-xl font-light tracking-tight text-neutral-950">
               Horários
@@ -110,7 +110,7 @@ const ContactPage = () => {
             </div>
           </article>
 
-          <article className="rounded-lg border border-neutral-200 bg-white p-6 sm:col-span-2">
+          <article className="py-6 sm:col-span-2">
             <Phone className="mb-5 h-6 w-6 text-[#5700B0]" aria-hidden="true" />
             <h2 className="text-xl font-light tracking-tight text-neutral-950">
               Antes da consulta

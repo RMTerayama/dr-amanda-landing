@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
+import { Check } from 'lucide-react';
 import drAmandaImg from '../assets/DrAmanda2.webp';
 import { siteInfo } from '../data/site';
 
@@ -101,15 +102,16 @@ const AboutSection = () => {
           </Motion.div>
 
           <Motion.ul
-            className="mt-8 grid gap-3 sm:grid-cols-3"
+            className="mt-9 grid gap-4 border-y border-neutral-200 py-6 sm:grid-cols-3"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-10%' }}
             transition={{ duration: 0.7, ease: smoothCurve, delay: 0.28 }}
           >
             {clinicalPoints.map((point) => (
-              <li key={point} className="rounded-lg border border-neutral-200 bg-[#FAFAFA] p-4 text-xs font-light leading-relaxed text-neutral-600">
-                {point}
+              <li key={point} className="flex items-start gap-3 text-xs font-light leading-relaxed text-neutral-600">
+                <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#5700B0]" aria-hidden="true" />
+                <span>{point}</span>
               </li>
             ))}
           </Motion.ul>

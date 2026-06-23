@@ -57,7 +57,7 @@ const TreatmentsPage = () => {
           </Motion.div>
 
           <Motion.div
-            className="rounded-lg border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.04)]"
+            className="border-y border-neutral-200 py-6"
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: smoothCurve, delay: 0.08 }}
@@ -84,17 +84,17 @@ const TreatmentsPage = () => {
 
       <section className="bg-white px-6 py-16 text-black md:px-12 md:py-24">
         <div className="mx-auto w-full max-w-[1400px]">
-          <div className="mb-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mb-14 grid border-t border-neutral-200 md:grid-cols-2 xl:grid-cols-4">
             {patientNeeds.map((item, index) => (
               <Motion.article
                 key={item.title}
-                className="rounded-lg border border-neutral-200 bg-[#FAFAFA] p-5 transition-all duration-500 hover:-translate-y-1 hover:border-[#5700B0]/30 hover:bg-white hover:shadow-[0_20px_45px_rgba(87,0,176,0.06)]"
+                className="border-b border-neutral-200 py-6 transition-colors duration-500 hover:border-[#5700B0]/35 md:px-5 xl:border-r xl:last:border-r-0"
                 initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.6, delay: index * 0.04, ease: smoothCurve }}
               >
-                <span className="mb-4 flex h-9 w-9 items-center justify-center rounded-full bg-[#5700B0]/10 text-[11px] font-semibold text-[#5700B0]">
+                <span className="mb-4 block font-serif text-4xl italic leading-none text-[#5700B0]/25">
                   0{index + 1}
                 </span>
                 <h2 className="text-lg font-medium tracking-tight text-neutral-950">
@@ -123,17 +123,17 @@ const TreatmentsPage = () => {
             </p>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid border-t border-neutral-200 md:grid-cols-2 xl:grid-cols-4">
             {treatmentCategories.map((category, index) => (
               <Motion.article
                 key={category.title}
-                className="flex min-h-[360px] flex-col rounded-lg border border-neutral-200 bg-[#FAFAFA] p-6 transition-all duration-500 hover:border-[#5700B0]/30 hover:bg-white hover:shadow-[0_20px_45px_rgba(87,0,176,0.06)]"
+                className="flex min-h-[360px] flex-col border-b border-neutral-200 py-7 transition-colors duration-500 hover:border-[#5700B0]/35 md:px-6 xl:border-r xl:last:border-r-0"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.8, delay: index * 0.04, ease: smoothCurve }}
               >
-                <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-[#5700B0]/10 text-[#5700B0]">
+                <div className="mb-5 flex h-10 w-10 items-center justify-center text-[#5700B0]">
                   <CircleCheck className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <h3 className="text-xl font-medium tracking-tight text-neutral-950">
@@ -187,11 +187,11 @@ const TreatmentsPage = () => {
             </p>
           </div>
 
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid border-t border-white/15 sm:grid-cols-2">
             {localSearchTerms.map((term) => (
               <div
                 key={term}
-                className="rounded-lg border border-white/10 bg-white/[0.04] px-5 py-4 text-sm font-light text-white/80"
+                className="border-b border-white/15 py-4 text-sm font-light text-white/80 sm:px-5"
               >
                 {term}
               </div>

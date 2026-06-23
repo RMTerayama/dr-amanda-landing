@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { ChevronDown, HelpCircle, MessageCircle } from 'lucide-react';
+import { ChevronDown, MessageCircle } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { faqItems } from '../data/site';
 
@@ -37,19 +37,19 @@ const FaqSection = () => {
           </WhatsAppButton>
         </Motion.div>
 
-        <div className="grid gap-3">
+        <div className="border-t border-neutral-200">
           {faqItems.map((item, index) => (
             <Motion.details
               key={item.question}
-              className="group rounded-lg border border-neutral-200 bg-[#FAFAFA] p-5 transition-all duration-500 open:border-[#5700B0]/30 open:bg-white open:shadow-[0_22px_55px_rgba(87,0,176,0.07)]"
+              className="group border-b border-neutral-200 py-6 transition-colors duration-500 open:border-[#5700B0]/35"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-10%' }}
               transition={{ duration: 0.7, delay: index * 0.05, ease: smoothCurve }}
             >
-              <summary className="flex cursor-pointer list-none items-center gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#5700B0]/10 text-[#5700B0]">
-                  <HelpCircle className="h-5 w-5" aria-hidden="true" />
+              <summary className="grid cursor-pointer list-none grid-cols-[auto_1fr_auto] items-center gap-4">
+                <span className="font-serif text-2xl italic leading-none text-[#5700B0]/45 md:text-3xl">
+                  0{index + 1}
                 </span>
                 <h3 className="flex-grow text-base font-medium leading-snug tracking-tight text-neutral-950 md:text-lg">
                   {item.question}
@@ -59,7 +59,7 @@ const FaqSection = () => {
                   aria-hidden="true"
                 />
               </summary>
-              <p className="mt-5 pl-14 text-sm font-light leading-relaxed text-neutral-500 md:text-base">
+              <p className="mt-5 max-w-3xl pl-12 text-sm font-light leading-relaxed text-neutral-500 md:pl-16 md:text-base">
                 {item.answer}
               </p>
             </Motion.details>
@@ -67,7 +67,7 @@ const FaqSection = () => {
         </div>
       </div>
 
-      <div className="mx-auto mt-10 flex w-full max-w-[1400px] items-center gap-3 rounded-lg border border-neutral-200 bg-[#FAFAFA] p-5 text-sm font-light leading-relaxed text-neutral-500">
+      <div className="mx-auto mt-10 flex w-full max-w-[1400px] items-center gap-3 border-t border-neutral-200 pt-6 text-sm font-light leading-relaxed text-neutral-500">
         <MessageCircle className="h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
         <p>
           Para casos com dor, dente quebrado, bruxismo intenso ou dúvida sobre

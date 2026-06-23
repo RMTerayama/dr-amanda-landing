@@ -31,46 +31,45 @@ const LocationSection = ({ detailed = false }) => {
             acesso no Centro.
           </p>
 
-          <div className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            <div className="rounded-lg border border-neutral-200 bg-white p-5">
-              <MapPin className="mb-4 h-5 w-5 text-[#5700B0]" aria-hidden="true" />
-              <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">
+          <dl className="mt-9 border-y border-neutral-200">
+            <div className="grid gap-3 border-b border-neutral-200 py-5 sm:grid-cols-[120px_1fr] sm:gap-6">
+              <dt className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                <MapPin className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
                 Endereço
-              </h3>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
+              </dt>
+              <dd className="text-sm font-light leading-relaxed text-neutral-500">
                 {siteInfo.addressLine}
-              </p>
-              <p className="mt-2 text-sm font-medium text-neutral-900">
-                {siteInfo.addressDetail}
-              </p>
+                <span className="mt-1 block font-medium text-neutral-900">
+                  {siteInfo.addressDetail}
+                </span>
+              </dd>
             </div>
 
-            <div className="rounded-lg border border-neutral-200 bg-white p-5">
-              <Clock className="mb-4 h-5 w-5 text-[#5700B0]" aria-hidden="true" />
-              <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">
+            <div className="grid gap-3 border-b border-neutral-200 py-5 sm:grid-cols-[120px_1fr] sm:gap-6">
+              <dt className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                <Clock className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
                 Horários
-              </h3>
-              <div className="space-y-2 text-sm font-light leading-relaxed text-neutral-500">
+              </dt>
+              <dd className="space-y-1 text-sm font-light leading-relaxed text-neutral-500">
                 {siteInfo.hours.map((hour) => (
                   <p key={hour}>{hour}</p>
                 ))}
-              </div>
+              </dd>
             </div>
 
-            <div className="rounded-lg border border-neutral-200 bg-white p-5">
-              <Phone className="mb-4 h-5 w-5 text-[#5700B0]" aria-hidden="true" />
-              <h3 className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-neutral-900">
+            <div className="grid gap-3 py-5 sm:grid-cols-[120px_1fr] sm:gap-6">
+              <dt className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                <Phone className="h-4 w-4 text-[#5700B0]" aria-hidden="true" />
                 Telefone
-              </h3>
-              <p className="text-sm font-light leading-relaxed text-neutral-500">
-                Fale pelo WhatsApp para agendar sua avaliação ou tirar dúvidas
-                iniciais.
-              </p>
-              <p className="mt-2 text-sm font-medium text-neutral-900">
-                {siteInfo.phoneDisplay}
-              </p>
+              </dt>
+              <dd className="text-sm font-light leading-relaxed text-neutral-500">
+                Fale pelo WhatsApp para agendar sua avaliação ou tirar dúvidas iniciais.
+                <span className="mt-1 block font-medium text-neutral-900">
+                  {siteInfo.phoneDisplay}
+                </span>
+              </dd>
             </div>
-          </div>
+          </dl>
 
           {detailed && (
             <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500">

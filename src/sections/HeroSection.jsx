@@ -76,30 +76,40 @@ const HeroSection = () => {
           </Motion.div>
 
           <Motion.div
-            className="mt-8 grid max-w-3xl gap-3 sm:grid-cols-3"
+            className="mt-9 max-w-3xl border-y border-neutral-200/80 py-5"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: smoothCurve, delay: 0.3 }}
           >
-            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
-              <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
-              <p className="text-xs font-light leading-relaxed text-neutral-500">
-                {siteInfo.professionalName}. {siteInfo.cro}.
-              </p>
-            </div>
-            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
-              <Star className="mt-0.5 h-5 w-5 shrink-0 fill-[#5700B0] text-[#5700B0]" aria-hidden="true" />
-              <p className="text-xs font-light leading-relaxed text-neutral-500">
-                Nota {googleReviews.rating} no Google, com {googleReviews.total}{' '}
-                avaliações públicas.
-              </p>
-            </div>
-            <div className="flex items-start gap-3 rounded-lg border border-black/5 bg-white/70 p-4">
-              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-[#5700B0]" aria-hidden="true" />
-              <p className="text-xs font-light leading-relaxed text-neutral-500">
-                Clareamento, lentes de resina, reabilitação e bruxismo.
-              </p>
-            </div>
+            <dl className="grid gap-4 text-xs font-light leading-relaxed text-neutral-500 sm:grid-cols-3">
+              <div className="flex gap-3 sm:border-r sm:border-neutral-200 sm:pr-4">
+                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#5700B0]" aria-hidden="true" />
+                <div>
+                  <dt className="font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                    {siteInfo.cro}
+                  </dt>
+                  <dd className="mt-1">{siteInfo.professionalName}</dd>
+                </div>
+              </div>
+              <div className="flex gap-3 sm:border-r sm:border-neutral-200 sm:px-4">
+                <Star className="mt-0.5 h-4 w-4 shrink-0 fill-[#5700B0] text-[#5700B0]" aria-hidden="true" />
+                <div>
+                  <dt className="font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                    Google {googleReviews.rating}
+                  </dt>
+                  <dd className="mt-1">{googleReviews.total} avaliações públicas</dd>
+                </div>
+              </div>
+              <div className="flex gap-3 sm:pl-4">
+                <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-[#5700B0]" aria-hidden="true" />
+                <div>
+                  <dt className="font-semibold uppercase tracking-[0.18em] text-neutral-900">
+                    Foco clínico
+                  </dt>
+                  <dd className="mt-1">Estética, função, bruxismo e reabilitação</dd>
+                </div>
+              </div>
+            </dl>
           </Motion.div>
         </div>
 
@@ -122,7 +132,7 @@ const HeroSection = () => {
           </div>
 
           <Motion.div
-            className="absolute bottom-5 left-0 max-w-[280px] rounded-lg border border-white/70 bg-white/85 p-4 shadow-[0_20px_45px_rgba(87,0,176,0.08)] backdrop-blur-xl md:bottom-8 md:max-w-[300px] md:p-5"
+            className="absolute bottom-6 left-0 max-w-[280px] border border-black/5 border-l-2 border-l-[#5700B0] bg-white/95 py-3 pl-4 pr-3 text-neutral-950 shadow-[0_18px_42px_rgba(0,0,0,0.14)] backdrop-blur-md md:bottom-9 md:max-w-[310px] md:py-4 md:pl-5"
             initial={{ opacity: 0, x: -18 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.75, ease: smoothCurve, delay: 0.32 }}

@@ -10,7 +10,13 @@ const StickyMobileCTA = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setVisible(window.scrollY > 520);
+      const servicesSection = document.getElementById('services');
+      const servicesRect = servicesSection?.getBoundingClientRect();
+      const servicesVisible = servicesRect
+        ? servicesRect.top < window.innerHeight && servicesRect.bottom > 0
+        : false;
+
+      setVisible(window.scrollY > 520 && !servicesVisible);
     };
 
     handleScroll();
@@ -22,23 +28,23 @@ const StickyMobileCTA = () => {
     <AnimatePresence>
       {visible && (
         <Motion.div
-          className="fixed inset-x-0 bottom-0 z-50 px-4 pb-[calc(env(safe-area-inset-bottom)+14px)] pt-3 md:hidden"
+          className="fixed bottom-4 right-4 z-50 pb-[env(safe-area-inset-bottom)] md:hidden"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 24 }}
           transition={{ duration: 0.45, ease: smoothCurve }}
         >
-          <div className="mx-auto flex max-w-sm items-center gap-2 rounded-full border border-white/70 bg-white/88 p-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.14)] backdrop-blur-xl">
+          <div className="rounded-full border border-white/70 bg-white/90 p-1 shadow-[0_14px_36px_rgba(0,0,0,0.14)] backdrop-blur-xl">
             <a
               href={buildWhatsAppUrl(
                 'Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica pelo site.'
               )}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-full bg-black px-5 text-[10px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 active:bg-[#5700B0]"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-black px-4 text-[9px] font-semibold uppercase tracking-[0.18em] text-white transition-colors duration-300 active:bg-[#5700B0]"
             >
               <CalendarCheck className="h-4 w-4 shrink-0" aria-hidden="true" />
-              Agendar pelo WhatsApp
+              Agendar
             </a>
           </div>
         </Motion.div>

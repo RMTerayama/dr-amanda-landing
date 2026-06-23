@@ -226,7 +226,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-start justify-between gap-4 rounded-lg border border-neutral-200 bg-[#FAFAFA] p-6 md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-5 border-t border-neutral-200 pt-7 md:flex-row md:items-center">
           <p className="max-w-2xl text-sm font-light leading-relaxed text-neutral-500">
             Não sabe exatamente qual tratamento precisa? Veja a lista completa ou
             fale pelo WhatsApp para explicar sua necessidade inicial antes da
