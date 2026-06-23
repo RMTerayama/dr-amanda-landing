@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
-import { ArrowRight, MapPin, ShieldCheck, Sparkles, Star } from 'lucide-react';
+import { ArrowRight, MapPin, ShieldCheck, Sparkles } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import drAmandaImg from '../assets/DrAmanda.webp';
 import { siteInfo } from '../data/site';
@@ -81,7 +81,7 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: smoothCurve, delay: 0.3 }}
           >
-            <dl className="grid gap-4 text-xs font-light leading-relaxed text-neutral-500 sm:grid-cols-3">
+            <dl className="grid gap-4 text-xs font-light leading-relaxed text-neutral-500 sm:grid-cols-2">
               <div className="flex gap-3 sm:border-r sm:border-neutral-200 sm:pr-4">
                 <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#5700B0]" aria-hidden="true" />
                 <div>
@@ -89,15 +89,6 @@ const HeroSection = () => {
                     {siteInfo.cro}
                   </dt>
                   <dd className="mt-1">{siteInfo.professionalName}</dd>
-                </div>
-              </div>
-              <div className="flex gap-3 sm:border-r sm:border-neutral-200 sm:px-4">
-                <Star className="mt-0.5 h-4 w-4 shrink-0 fill-[#5700B0] text-[#5700B0]" aria-hidden="true" />
-                <div>
-                  <dt className="font-semibold uppercase tracking-[0.18em] text-neutral-900">
-                    Avaliações no Google
-                  </dt>
-                  <dd className="mt-1">Trechos públicos no perfil da clínica</dd>
                 </div>
               </div>
               <div className="flex gap-3 sm:pl-4">
