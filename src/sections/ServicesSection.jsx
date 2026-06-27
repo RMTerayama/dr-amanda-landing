@@ -1,15 +1,47 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 import { ArrowRight, Check, ChevronsLeftRight, Sparkles } from 'lucide-react';
 import WhatsAppButton from '../components/WhatsAppButton';
 import { buildWhatsAppUrl, featuredTreatments } from '../data/site';
 
 const smoothCurve = [0.22, 1, 0.36, 1];
 
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
 const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%' }) => {
   const [split, setSplit] = useState(50);
   const [dragging, setDragging] = useState(false);
   const containerRef = useRef(null);
+  const hintTweenRef = useRef(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion || !containerRef.current) {
+      return undefined;
+    }
+
+    const progress = { value: 43 };
+    hintTweenRef.current = gsap.to(progress, {
+      value: 50,
+      duration: 1.15,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: 'top 82%',
+        once: true,
+      },
+      onUpdate: () => setSplit(progress.value),
+    });
+
+    return () => {
+      hintTweenRef.current?.scrollTrigger?.kill();
+      hintTweenRef.current?.kill();
+    };
+  }, []);
 
   const calcSplit = useCallback((clientX) => {
     if (!containerRef.current) return;
@@ -20,6 +52,7 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
 
   const onMouseDown = (event) => {
     event.preventDefault();
+    hintTweenRef.current?.kill();
     setDragging(true);
     const onMove = (moveEvent) => calcSplit(moveEvent.clientX);
     const onUp = () => {
@@ -32,6 +65,7 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
   };
 
   const onTouchStart = () => {
+    hintTweenRef.current?.kill();
     setDragging(true);
     const onMove = (moveEvent) => calcSplit(moveEvent.touches[0].clientX);
     const onEnd = () => {
@@ -113,18 +147,14 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
   );
 };
 
-const FeaturedTreatmentCard = ({ service, index }) => {
+const FeaturedTreatmentCard = ({ service }) => {
   const hasVisual = Boolean(service.beforeImg && service.afterImg);
   const hasImage = Boolean(service.image);
 
   return (
-    <Motion.article
+    <article
+      data-treatment-card
       className="group flex min-h-[430px] flex-col overflow-hidden rounded-lg border border-neutral-200 bg-[#FAFAFA] transition-all duration-500 hover:border-[#5700B0]/30 hover:bg-white hover:shadow-[0_24px_60px_rgba(87,0,176,0.1)]"
-      initial={{ opacity: 0, y: 32 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -6 }}
-      viewport={{ once: true, margin: '-10%' }}
-      transition={{ duration: 0.68, delay: index * 0.05, ease: smoothCurve }}
     >
       <div className="h-56 overflow-hidden border-b border-neutral-200 bg-neutral-100 md:h-64">
         {hasVisual ? (
@@ -184,13 +214,58 @@ const FeaturedTreatmentCard = ({ service, index }) => {
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
-    </Motion.article>
+    </article>
   );
 };
 
 const ServicesSection = () => {
+  const servicesRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (prefersReducedMotion) {
+        return;
+      }
+
+      const grid = servicesRef.current.querySelector('[data-treatment-grid]');
+      const cards = gsap.utils.toArray('[data-treatment-card]');
+
+      gsap.set(cards, { autoAlpha: 0, y: 34 });
+
+      const revealCards = () => {
+        gsap.to(cards, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.76,
+          ease: 'power3.out',
+          stagger: 0.08,
+          overwrite: true,
+        });
+      };
+
+      if (ScrollTrigger.isInViewport(grid, 0.1)) {
+        revealCards();
+        return;
+      }
+
+      ScrollTrigger.create({
+        trigger: grid,
+        start: 'top 82%',
+        once: true,
+        onEnter: revealCards,
+      });
+    },
+    { scope: servicesRef }
+  );
+
   return (
-    <section id="services" className="relative bg-white px-6 py-20 text-black md:px-12 md:py-28">
+    <section
+      ref={servicesRef}
+      id="services"
+      className="relative bg-white px-6 py-20 text-black md:px-12 md:py-28"
+    >
       <div className="mx-auto w-full max-w-[1400px]">
         <div className="mb-10 flex flex-col justify-between gap-6 md:mb-14 lg:flex-row lg:items-end">
           <Motion.div
@@ -220,9 +295,9 @@ const ServicesSection = () => {
           </Motion.p>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {featuredTreatments.map((service, index) => (
-            <FeaturedTreatmentCard key={service.title} service={service} index={index} />
+        <div data-treatment-grid className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {featuredTreatments.map((service) => (
+            <FeaturedTreatmentCard key={service.title} service={service} />
           ))}
         </div>
 

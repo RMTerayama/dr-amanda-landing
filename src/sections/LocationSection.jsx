@@ -9,6 +9,10 @@ const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURICompo
 const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(siteInfo.mapQuery)}&output=embed`;
 
 const LocationSection = ({ detailed = false }) => {
+  const schedulingNote = detailed
+    ? 'Para confirmar disponibilidade e combinar o melhor horário, fale diretamente pelo WhatsApp antes de se deslocar até a clínica.'
+    : 'Atendimento mediante agendamento. Para confirmar disponibilidade e combinar o melhor horário, fale diretamente pelo WhatsApp antes de se deslocar até a clínica.';
+
   return (
     <section id="localizacao" className="bg-[#FAFAFA] px-6 py-20 text-black md:px-12 md:py-28">
       <div className="mx-auto grid w-full max-w-[1400px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
@@ -71,12 +75,9 @@ const LocationSection = ({ detailed = false }) => {
             </div>
           </dl>
 
-          {detailed && (
-            <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-500">
-              Para confirmar disponibilidade e combinar o melhor horário, fale
-              diretamente pelo WhatsApp antes de se deslocar até a clínica.
-            </p>
-          )}
+          <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-neutral-600">
+            {schedulingNote}
+          </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <WhatsAppButton

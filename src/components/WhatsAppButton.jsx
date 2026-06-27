@@ -33,7 +33,7 @@ const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={[
-        'inline-flex max-w-full items-center justify-center gap-3 rounded-full px-6 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.2em] transition-all duration-500',
+        'inline-flex max-w-full min-w-0 items-center justify-center gap-3 rounded-full px-5 py-3 text-center text-[10px] font-semibold uppercase tracking-[0.16em] transition-all duration-500 sm:px-6 sm:tracking-[0.2em]',
         'focus:outline-none focus-visible:ring-2 focus-visible:ring-[#5700B0] focus-visible:ring-offset-2',
         variants[variant] || variants.dark,
         className,

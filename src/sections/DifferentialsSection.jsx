@@ -22,7 +22,7 @@ const DifferentialsSection = () => {
           <h2 className="max-w-xl text-4xl font-light leading-tight tracking-tight text-neutral-900 md:text-5xl">
             O que muda antes de indicar qualquer procedimento.
           </h2>
-          <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-neutral-500 md:text-base">
+          <p className="mt-6 max-w-md text-sm font-light leading-relaxed text-neutral-600 md:text-base">
             Menos promessa pronta, mais leitura clínica: a consulta organiza
             queixa, função, estética e prioridades para evitar escolhas
             apressadas.
@@ -42,7 +42,7 @@ const DifferentialsSection = () => {
                 viewport={{ once: true, margin: '-10%' }}
                 transition={{ duration: 0.8, delay: index * 0.08, ease: smoothCurve }}
               >
-                <span className="font-serif text-5xl italic leading-none text-[#5700B0]/15 md:text-6xl">
+                <span className="font-serif text-5xl italic leading-none text-[#5700B0]/25 md:text-6xl">
                   0{index + 1}
                 </span>
                 <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ const DifferentialsSection = () => {
                     {item.title}
                   </h3>
                 </div>
-                <p className="text-sm font-light leading-relaxed text-neutral-500 md:text-base">
+                <p className="text-sm font-light leading-relaxed text-neutral-600 md:text-base">
                   {item.description}
                 </p>
               </Motion.article>

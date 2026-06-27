@@ -46,13 +46,13 @@ const TestimonialsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: smoothCurve }}
         >
-          <span className="mb-5 block text-[10px] font-semibold uppercase tracking-[0.24em] text-white/50 md:text-xs">
+          <span className="mb-5 block text-[10px] font-semibold uppercase tracking-[0.24em] text-white/60 md:text-xs">
             Como funciona a avaliação
           </span>
           <h2 className="max-w-3xl text-4xl font-light leading-tight tracking-tight md:text-6xl">
             Da primeira mensagem ao plano de tratamento.
           </h2>
-          <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-white/65 md:text-base">
+          <p className="mt-6 max-w-xl text-sm font-light leading-relaxed text-white/72 md:text-base">
             A consulta segue uma ordem simples: entender sua queixa, examinar o que
             influencia o resultado e só então conversar sobre possibilidades reais
             de tratamento.
@@ -75,13 +75,13 @@ const TestimonialsSection = () => {
                 <span className="absolute -left-[21px] flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#17131B] text-[#B78CFF]">
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </span>
-                <span className="mb-3 block text-[10px] font-semibold uppercase tracking-[0.22em] text-white/45">
+                <span className="mb-3 block text-[10px] font-semibold uppercase tracking-[0.22em] text-white/55">
                   0{index + 1} / {step.label}
                 </span>
                 <h3 className="text-2xl font-light tracking-tight text-white md:text-3xl">
                   {step.title}
                 </h3>
-                <p className="mt-4 max-w-2xl text-sm font-light leading-relaxed text-white/62 md:text-base">
+                <p className="mt-4 max-w-2xl text-sm font-light leading-relaxed text-white/72 md:text-base">
                   {step.description}
                 </p>
               </Motion.li>
