@@ -76,7 +76,7 @@ const Navbar = ({ currentPath = '/' }) => {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href={buildWhatsAppUrl('Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica pelo site.')}
+            href={buildWhatsAppUrl('Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica.')}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-2.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white transition-all duration-500 hover:bg-[#5700B0]"
@@ -122,7 +122,7 @@ const Navbar = ({ currentPath = '/' }) => {
               })}
             </ul>
             <a
-              href={buildWhatsAppUrl('Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica pelo site.')}
+              href={buildWhatsAppUrl('Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica.')}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMenuOpen(false)}

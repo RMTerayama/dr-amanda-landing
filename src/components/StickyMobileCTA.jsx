@@ -37,7 +37,7 @@ const StickyMobileCTA = () => {
           <div className="rounded-full border border-white/70 bg-white/90 p-1 shadow-[0_14px_36px_rgba(0,0,0,0.14)] backdrop-blur-xl">
             <a
               href={buildWhatsAppUrl(
-                'Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica pelo site.'
+                'Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica.'
               )}
               target="_blank"
               rel="noopener noreferrer"

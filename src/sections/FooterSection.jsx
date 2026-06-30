@@ -41,7 +41,7 @@ const FooterSection = () => {
           <WhatsAppButton
             className="mt-10"
             variant="light"
-            message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica pelo site."
+            message="Olá, Dra. Amanda! Gostaria de agendar uma avaliação odontológica."
           >
             Agendar avaliação
           </WhatsAppButton>
