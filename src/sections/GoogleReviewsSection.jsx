@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion as Motion } from 'framer-motion';
 import {
-  ArrowRight,
   ExternalLink,
   MessageCircle,
   Quote,
@@ -144,8 +143,7 @@ const GoogleReviewsSection = () => {
                   </p>
                 </div>
                 <span className="inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#5700B0]">
-                  Google
-                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  Avalia&ccedil;&atilde;o p&uacute;blica
                 </span>
               </Motion.article>
             ))}
