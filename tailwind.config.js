@@ -7,10 +7,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#0ea5e9", // placeholder
-        secondary: "#3b82f6", // placeholder
-        tertiary: "#5700B0", // New violet color
-        neutral: "#1f2937", // placeholder
+        brand: {
+          50: '#f8f4fc',
+          100: '#ede2f7',
+          200: '#dbc5ee',
+          500: '#7a24b7',
+          600: '#5700B0',
+          700: '#43008a',
+        },
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

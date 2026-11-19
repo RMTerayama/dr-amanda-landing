@@ -1,0 +1,9 @@
+{
+  "name": "Dra. Amanda Miyuki | Odontologia Estética",
+  "short_name": "Dra. Amanda",
+  "lang": "pt-BR",
+  "display": "browser",
+  "theme_color": "#5700B0",
+  "background_color": "#FAFAFA",
+  "icons": [{ "src": "/favicon.webp", "type": "image/webp" }]
+}

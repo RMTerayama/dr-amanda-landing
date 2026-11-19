@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion as Motion } from 'framer-motion';
 import { CalendarCheck, Menu, X } from 'lucide-react';
 import logoImg from '../assets/logo.webp';
@@ -8,6 +8,7 @@ const smoothCurve = [0.22, 1, 0.36, 1];
 
 const navLinks = [
   { label: 'Início', href: '/' },
+  { label: 'Quem sou eu', href: '/#quem-sou-eu' },
   { label: 'Tratamentos', href: '/#services' },
   { label: 'Avaliações', href: '/#avaliacoes' },
   { label: 'Localização', href: '/#localizacao' },
@@ -17,6 +18,7 @@ const navLinks = [
 const Navbar = ({ currentPath = '/' }) => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 32);
@@ -24,6 +26,17 @@ const Navbar = ({ currentPath = '/' }) => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const onKeyDown = (event) => {
+      if (event.key === 'Escape' && menuOpen) {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, [menuOpen]);
 
   return (
     <Motion.header
@@ -89,15 +102,17 @@ const Navbar = ({ currentPath = '/' }) => {
         <button
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-black/10 bg-white/70 text-black transition-colors duration-300 hover:border-[#5700B0] hover:text-[#5700B0] md:hidden"
+          ref={menuButtonRef}
           aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
           aria-expanded={menuOpen}
+          aria-controls="menu-mobile"
           onClick={() => setMenuOpen((open) => !open)}
         >
           {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
 
         {menuOpen && (
-          <div className="absolute left-0 right-0 top-[calc(100%+10px)] rounded-lg border border-black/5 bg-white p-3 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:hidden">
+          <div id="menu-mobile" className="absolute left-0 right-0 top-[calc(100%+10px)] rounded-lg border border-black/5 bg-white p-3 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:hidden">
             <ul className="grid gap-1">
               {navLinks.map((link) => {
                 const active = currentPath === link.href || (link.href === '/' && currentPath === '/');

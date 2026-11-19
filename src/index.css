@@ -25,6 +25,11 @@
     color: #111111;
   }
 
+  :focus-visible {
+    outline: 3px solid #6d28d9;
+    outline-offset: 3px;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -34,5 +39,15 @@
       scroll-behavior: auto !important;
       transition-duration: 0.01ms !important;
     }
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply fixed left-4 top-4 z-[100] -translate-y-24 rounded-full bg-neutral-950 px-5 py-3 text-sm font-semibold text-white transition-transform focus:translate-y-0;
+  }
+
+  .text-label {
+    @apply block text-xs font-bold uppercase tracking-[0.18em];
   }
 }

@@ -161,6 +161,38 @@ function App() {
     }
     metaDescription.setAttribute('content', route.description);
 
+    const pageUrl = `${window.location.origin}${currentPath}`;
+    const setHeadTag = (selector, create) => {
+      let tag = document.head.querySelector(selector);
+      if (!tag) {
+        tag = create();
+        document.head.appendChild(tag);
+      }
+      return tag;
+    };
+    const canonical = setHeadTag('link[rel="canonical"]', () => {
+      const tag = document.createElement('link');
+      tag.rel = 'canonical';
+      return tag;
+    });
+    canonical.href = pageUrl;
+    [
+      ['og:title', route.title],
+      ['og:description', route.description],
+      ['og:url', pageUrl],
+      ['og:type', 'website'],
+      ['twitter:card', 'summary_large_image'],
+    ].forEach(([property, content]) => {
+      const isOpenGraph = property.startsWith('og:');
+      const selector = isOpenGraph ? `meta[property="${property}"]` : `meta[name="${property}"]`;
+      const tag = setHeadTag(selector, () => {
+        const element = document.createElement('meta');
+        element.setAttribute(isOpenGraph ? 'property' : 'name', property);
+        return element;
+      });
+      tag.setAttribute('content', content);
+    });
+
     const baseUrl = window.location.origin;
     let structuredData = document.querySelector('#structured-data-local-business');
     if (!structuredData) {
