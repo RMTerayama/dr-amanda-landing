@@ -11,7 +11,13 @@ const smoothCurve = [0.22, 1, 0.36, 1];
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%' }) => {
+const SplitSlider = ({
+  beforeImg,
+  afterImg,
+  title,
+  beforeObjectPosition = 'center center',
+  afterObjectPosition = 'center center',
+}) => {
   const [split, setSplit] = useState(50);
   const [dragging, setDragging] = useState(false);
   const containerRef = useRef(null);
@@ -100,7 +106,7 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
         loading="lazy"
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-        style={{ objectPosition }}
+        style={{ objectPosition: afterObjectPosition }}
       />
       <img
         src={beforeImg}
@@ -108,7 +114,10 @@ const SplitSlider = ({ beforeImg, afterImg, title, objectPosition = 'center 30%'
         loading="lazy"
         decoding="async"
         className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-        style={{ clipPath: `inset(0 ${100 - split}% 0 0)`, objectPosition }}
+        style={{
+          clipPath: `inset(0 ${100 - split}% 0 0)`,
+          objectPosition: beforeObjectPosition,
+        }}
       />
 
       <div
@@ -162,7 +171,8 @@ const FeaturedTreatmentCard = ({ service }) => {
             beforeImg={service.beforeImg}
             afterImg={service.afterImg}
             title={service.title}
-            objectPosition={service.objectPosition}
+            beforeObjectPosition={service.beforeObjectPosition || service.objectPosition}
+            afterObjectPosition={service.afterObjectPosition || service.objectPosition}
           />
         ) : hasImage ? (
           <img

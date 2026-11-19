@@ -1,5 +1,5 @@
-import resinaAntesImg from '../assets/resinaAntes.webp';
-import resinaDepoisImg from '../assets/ResinaDepois.webp';
+import resinaAntesImg from '../assets/lentes-resina-antes.jpeg';
+import resinaDepoisImg from '../assets/lentes-resina-depois.jpeg';
 import clareamentoAntesImg from '../assets/clareamentoAntes.jpeg';
 import clareamentoDepoisImg from '../assets/clareamentoDepois.jpeg';
 import reabilitacaoAntesImg from '../assets/reabilitacaoAntes.webp';
@@ -78,7 +78,8 @@ export const featuredTreatments = [
       'Para quem deseja corrigir formato, proporção e harmonia dos dentes com planejamento personalizado e resultado natural.',
     beforeImg: resinaAntesImg,
     afterImg: resinaDepoisImg,
-    objectPosition: 'center 30%',
+    beforeObjectPosition: 'center 55%',
+    afterObjectPosition: 'center 55%',
     points: ['Planejamento de formato e proporção', 'Avaliação de mordida e cor'],
   },
   {
