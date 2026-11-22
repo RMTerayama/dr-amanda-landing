@@ -2,8 +2,6 @@ import resinaAntesImg from '../assets/lentes-resina-antes.jpeg';
 import resinaDepoisImg from '../assets/lentes-resina-depois.jpeg';
 import clareamentoAntesImg from '../assets/clareamentoAntes.jpeg';
 import clareamentoDepoisImg from '../assets/clareamentoDepois.jpeg';
-import reabilitacaoAntesImg from '../assets/reabilitacaoAntes.webp';
-import reabilitacaoDepoisImg from '../assets/reabilitacaoDepois.webp';
 import bruxismoImg from '../assets/Bruxismo.jpeg';
 
 export const siteInfo = {
@@ -72,7 +70,7 @@ export const googleReviews = {
 
 export const featuredTreatments = [
   {
-    title: 'Lentes de Resina',
+    title: 'Lentes de resina e reabilitação estética e funcional',
     eyebrow: 'Estética natural',
     description:
       'Para quem deseja corrigir formato, proporção e harmonia dos dentes com planejamento personalizado e resultado natural.',
@@ -91,16 +89,6 @@ export const featuredTreatments = [
     afterImg: clareamentoDepoisImg,
     objectPosition: 'center 48%',
     points: ['Registro da cor inicial', 'Protocolo conforme sensibilidade'],
-  },
-  {
-    title: 'Reabilitação Estética e Funcional',
-    eyebrow: 'Função antes da beleza',
-    description:
-      'Para recuperar dentes desgastados, melhorar a mordida e devolver estética, conforto e segurança ao sorrir.',
-    beforeImg: reabilitacaoAntesImg,
-    afterImg: reabilitacaoDepoisImg,
-    objectPosition: 'center center',
-    points: ['Recuperação de desgaste dental', 'Plano funcional e estético'],
   },
   {
     title: 'Tratamento para Bruxismo',
