@@ -71,14 +71,18 @@ export const googleReviews = {
 export const featuredTreatments = [
   {
     title: 'Lentes de resina e reabilitação estética e funcional',
-    eyebrow: 'Estética natural',
+    eyebrow: 'Estética, função e naturalidade',
     description:
-      'Para quem deseja corrigir formato, proporção e harmonia dos dentes com planejamento personalizado e resultado natural.',
+      'Para corrigir formato, proporção e harmonia dos dentes, recuperar desgastes e melhorar a mordida com planejamento personalizado, conforto e resultado natural.',
     beforeImg: resinaAntesImg,
     afterImg: resinaDepoisImg,
     beforeObjectPosition: 'center 55%',
     afterObjectPosition: 'center 55%',
-    points: ['Planejamento de formato e proporção', 'Avaliação de mordida e cor'],
+    points: [
+      'Planejamento de formato, proporção e cor',
+      'Recuperação de desgaste dental',
+      'Avaliação da mordida e função',
+    ],
   },
   {
     title: 'Clareamento Dental',
